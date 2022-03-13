@@ -7,7 +7,7 @@ async function run(): Promise<void> {
 
     await exec.exec(`ls`)
     await exec.exec(`echo "Hola Mundo"`)
-    await exec.exec(`echo "Hola ${Date.now()}" > readme2.md`)
+    await exec.exec(`echo 'Hola ${Date.now()}' > readme2.md`)
 
     await exec.exec(`ls`)
     await exec.exec(`pwd`)

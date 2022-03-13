@@ -43,7 +43,7 @@ function run() {
             yield exec.exec('echo', ['"hello"', '> file.txt']);
             yield exec.exec(`ls`);
             yield exec.exec(`echo "Hola Mundo"`);
-            yield exec.exec(`echo "Hola ${Date.now()}" > readme2.md`);
+            yield exec.exec(`echo 'Hola ${Date.now()}' > readme2.md`);
             yield exec.exec(`ls`);
             yield exec.exec(`pwd`);
             yield exec.exec(`git config user.name github-actions`);
