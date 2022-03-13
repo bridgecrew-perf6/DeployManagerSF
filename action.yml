@@ -45,7 +45,6 @@ inputs:
   type:
     description: 'Type'
     required: true
-    default: 'https://login.salesforce.com' 
     type: choice
     default: 'validation'
     options: 
