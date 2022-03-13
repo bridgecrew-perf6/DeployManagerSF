@@ -40,9 +40,7 @@ const exec = __importStar(__nccwpck_require__(514));
 function run() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            const ms = core.getInput('milliseconds');
-            core.debug(`Waiting ${ms} milliseconds ...`); // debug is only output if you set the secret `ACTIONS_STEP_DEBUG` to true
-            yield exec.exec(`echo "${Date.now()}" > here.txt`);
+            yield exec.exec(`printf "${Date.now()}" > here.txt`);
             yield exec.exec(`ls`);
             yield exec.exec(`git config user.name github-actions`);
             yield exec.exec(`git config user.email github-actions@github.com`);
