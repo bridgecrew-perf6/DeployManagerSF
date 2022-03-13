@@ -3,7 +3,7 @@ import * as exec from '@actions/exec'
 
 async function run(): Promise<void> {
   try {
-    await exec.exec('echo', ['"hello"', '>gile.txt'])
+    await exec.exec('echo', ['"hello"', '> file.txt'])
 
     await exec.exec(`ls`)
     await exec.exec(`echo "Hola Mundo"`)
