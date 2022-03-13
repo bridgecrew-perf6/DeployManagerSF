@@ -5,11 +5,13 @@ async function run(): Promise<void> {
   try {
     await exec.exec('echo', ['"hello"', '>gile.txt'])
 
+    await exec.exec(`ls`)
     await exec.exec(`echo "Hola Mundo"`)
     await exec.exec(`echo "Hola ${Date.now()}" > readme2.md`)
 
     await exec.exec(`ls`)
-
+    await exec.exec(`pwd`)
+    
     await exec.exec(`git config user.name github-actions`)
     await exec.exec(`git config user.email github-actions@github.com`)
     await exec.exec(`git add .`)
