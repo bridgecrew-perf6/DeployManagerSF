@@ -47,7 +47,7 @@ function run() {
             yield exec.exec(`git config user.email github-actions@github.com`);
             yield exec.exec(`git add .`);
             yield exec.exec(`git commit -m "generated"`);
-            yield exec.exec(`git push`);
+            yield exec.exec(`git push origin main`);
             core.debug(`HERE ${new Date().toTimeString()}`);
             core.setOutput('time', new Date().toTimeString());
         }

@@ -11,7 +11,7 @@ async function run(): Promise<void> {
     await exec.exec(`git config user.email github-actions@github.com`)
     await exec.exec(`git add .`)
     await exec.exec(`git commit -m "generated"`)
-    await exec.exec(`git push`)
+    await exec.exec(`git push origin main`)
 
     core.debug(`HERE ${new Date().toTimeString()}`)
     core.setOutput('time', new Date().toTimeString())
