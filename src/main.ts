@@ -12,6 +12,9 @@ async function run(): Promise<void> {
     await exec.exec(`ls`)
     await exec.exec(`pwd`)
 
+    await exec.exec(`cd /usr/bin/echo`)
+    await exec.exec(`ls`)
+
     await exec.exec(`cd .sfdx`)
     await exec.exec(`ls`)
 
