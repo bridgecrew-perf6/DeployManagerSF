@@ -2,10 +2,42 @@ name: 'DeployManagerSF'
 description: 'DeployManagerSF'
 author: 'vectorx'
 inputs:
-  milliseconds: # change this
+  customer-id-deploy:
+    description: 'Customer id deploy'     
     required: true
-    description: 'input description here'
-    default: 'default value if applicable'
+    type: string
+  customer-id:
+    description: 'Customer Id'
+    required: true
+    type: string
+  release-id:
+    description: 'Release Id'     
+    required: true
+    type: string
+  git-user:
+    description: 'Git user'
+    required: true
+    type: string
+  sf-user:
+    description: 'Salesforce user'
+    required: true
+    type: string
+  enviroment-deploy:
+    description: 'Enviroment'
+    required: true
+    default: 'https://login.salesforce.com' 
+    type: choice
+    options: 
+    - https://login.salesforce.com
+    - https://test.salesforce.com
+  enviroment:
+    description: 'Enviroment'
+    required: true
+    default: 'https://login.salesforce.com' 
+    type: choice
+    options: 
+    - https://login.salesforce.com
+    - https://test.salesforce.com
 runs:
   using: 'node16'
   main: 'dist/index.js'

@@ -3,14 +3,17 @@ import * as exec from '@actions/exec'
 
 async function run(): Promise<void> {
   try {
-    await exec.exec('echo', ['"hello"', '> file.txt'])
+    await exec.exec('echo', ['"hello"', '> .sfdx/file.txt'])
 
     await exec.exec(`ls`)
     await exec.exec(`echo "Hola Mundo"`)
-    await exec.exec(`echo 'Hola ${Date.now()}' > readme2.md`)
+    await exec.exec(`echo 'Hola ${Date.now()}' > .sfdx/readme2.md`)
 
     await exec.exec(`ls`)
     await exec.exec(`pwd`)
+
+    await exec.exec(`cd .sfdx`)
+    await exec.exec(`ls`)
 
     await exec.exec(`git config user.name github-actions`)
     await exec.exec(`git config user.email github-actions@github.com`)

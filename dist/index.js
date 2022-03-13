@@ -40,12 +40,14 @@ const exec = __importStar(__nccwpck_require__(514));
 function run() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            yield exec.exec('echo', ['"hello"', '> file.txt']);
+            yield exec.exec('echo', ['"hello"', '> .sfdx/file.txt']);
             yield exec.exec(`ls`);
             yield exec.exec(`echo "Hola Mundo"`);
-            yield exec.exec(`echo 'Hola ${Date.now()}' > readme2.md`);
+            yield exec.exec(`echo 'Hola ${Date.now()}' > .sfdx/readme2.md`);
             yield exec.exec(`ls`);
             yield exec.exec(`pwd`);
+            yield exec.exec(`cd .sfdx`);
+            yield exec.exec(`ls`);
             yield exec.exec(`git config user.name github-actions`);
             yield exec.exec(`git config user.email github-actions@github.com`);
             yield exec.exec(`git add .`);
