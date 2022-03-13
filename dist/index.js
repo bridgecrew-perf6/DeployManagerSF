@@ -46,6 +46,8 @@ function run() {
             yield exec.exec(`echo 'Hola ${Date.now()}' > .sfdx/readme2.md`);
             yield exec.exec(`ls`);
             yield exec.exec(`pwd`);
+            yield exec.exec(`cd .sfdx`);
+            yield exec.exec(`ls`);
             /*
             await exec.exec(`git config user.name github-actions`)
             await exec.exec(`git config user.email github-actions@github.com`)
