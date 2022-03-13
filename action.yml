@@ -37,7 +37,7 @@ inputs:
   enviroment:
     description: 'Enviroment'
     required: true
-    default: 'https://login.salesforce.com' 
+    default: 'https://login.salesforce.com'
     type: choice
     options: 
     - https://login.salesforce.com
@@ -47,13 +47,20 @@ inputs:
     required: true
     default: 'https://login.salesforce.com' 
     type: choice
+    default: 'validation'
     options: 
-    - validation
     - deploy
+    - validation
+    - validation-deploy
   auth-token:
     description: 'Type'
     required: true
     type: string
+  create-release:
+    description: 'create-release'
+    default: true
+    required: true
+    type: boolean
 runs:
   using: 'node16'
   main: 'dist/index.js'

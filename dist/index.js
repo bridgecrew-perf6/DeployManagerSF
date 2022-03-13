@@ -234,21 +234,24 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.run = void 0;
+exports.deploy = exports.validation = void 0;
 const core_1 = __nccwpck_require__(2186);
 const git_1 = __nccwpck_require__(3374);
 const sfdx_release_1 = __nccwpck_require__(5539);
-function run() {
+function validation() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
+            (0, core_1.info)('VALIDATION');
             const releaseId = (0, core_1.getInput)('release-id', { required: true });
             const authToken = (0, core_1.getInput)('auth-token', { required: true });
+            const createRelease = (0, core_1.getInput)('create-release', { required: true });
             const sfdx = new sfdx_release_1.SfdxRelease();
             const git = new git_1.Git();
             const releaseInfo = sfdx.getRelease(releaseId);
             const packageInfo = sfdx.getPackage(releaseId, releaseInfo);
-            //const gitListInfo = git.getGitAddCommand(packageInfo.members)
-            yield git.setRelease(packageInfo.markdown, authToken, releaseInfo);
+            if (createRelease) {
+                yield git.setRelease(packageInfo.markdown, authToken, releaseInfo);
+            }
         }
         catch (error) {
             if (error instanceof Error)
@@ -256,8 +259,23 @@ function run() {
         }
     });
 }
-exports.run = run;
-run();
+exports.validation = validation;
+function deploy() {
+    return __awaiter(this, void 0, void 0, function* () {
+        (0, core_1.info)('DEPLOY');
+    });
+}
+exports.deploy = deploy;
+const type = (0, core_1.getInput)('type', { required: true });
+if (type === 'validation') {
+    validation();
+}
+else if (type === 'deploy') {
+    deploy();
+}
+else if (type === 'validation-deploy') {
+    validation();
+}
 
 
 /***/ }),
