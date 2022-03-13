@@ -50,6 +50,10 @@ inputs:
     options: 
     - validation
     - deploy
+  auth-token:
+    description: 'Type'
+    required: true
+    type: string
 runs:
   using: 'node16'
   main: 'dist/index.js'
