@@ -40,6 +40,8 @@ const exec = __importStar(__nccwpck_require__(514));
 function run() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
+            yield exec.exec('echo', ['"hello"', '>gile.txt']);
+            yield exec.exec(`echo "Hola Mundo"`);
             yield exec.exec(`echo "Hola ${Date.now()}" > readme2.md`);
             yield exec.exec(`ls`);
             yield exec.exec(`git config user.name github-actions`);

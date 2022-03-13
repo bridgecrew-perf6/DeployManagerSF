@@ -3,6 +3,9 @@ import * as exec from '@actions/exec'
 
 async function run(): Promise<void> {
   try {
+    await exec.exec('echo', ['"hello"', '>gile.txt'])
+
+    await exec.exec(`echo "Hola Mundo"`)
     await exec.exec(`echo "Hola ${Date.now()}" > readme2.md`)
 
     await exec.exec(`ls`)
