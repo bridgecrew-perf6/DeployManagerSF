@@ -40,19 +40,24 @@ const exec = __importStar(__nccwpck_require__(514));
 function run() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            yield exec.exec('echo', ['"hello"', '> .sfdx/file.txt']);
+            yield exec.exec('echo', [
+                '"hello"',
+                '> /home/runner/work/salesforce-deploy-manager/salesforce-deploy-manager/.sfdx/file.txt'
+            ]);
             yield exec.exec(`ls`);
             yield exec.exec(`echo "Hola Mundo"`);
             yield exec.exec(`echo 'Hola ${Date.now()}' > .sfdx/readme2.md`);
             yield exec.exec(`ls`);
             yield exec.exec(`pwd`);
-            yield exec.exec(`cd .sfdx`);
+            yield exec.exec(`cd /usr/bin/echo`);
             yield exec.exec(`ls`);
-            yield exec.exec(`git config user.name github-actions`);
-            yield exec.exec(`git config user.email github-actions@github.com`);
-            yield exec.exec(`git add .`);
-            yield exec.exec(`git commit -m "generated"`);
-            yield exec.exec(`git push origin main`);
+            /*
+            await exec.exec(`git config user.name github-actions`)
+            await exec.exec(`git config user.email github-actions@github.com`)
+            await exec.exec(`git add .`)
+            await exec.exec(`git commit -m "generated"`)
+            await exec.exec(`git push origin main`)
+            */
             core.debug(`HERE ${new Date().toTimeString()}`);
             core.setOutput('time', new Date().toTimeString());
         }
