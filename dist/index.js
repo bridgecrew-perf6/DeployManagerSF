@@ -43,6 +43,7 @@ function run() {
             const ms = core.getInput('milliseconds');
             core.debug(`Waiting ${ms} milliseconds ...`); // debug is only output if you set the secret `ACTIONS_STEP_DEBUG` to true
             yield exec.exec(`echo "${Date.now()}" > here.txt`);
+            yield exec.exec(`ls`);
             yield exec.exec(`git config user.name github-actions`);
             yield exec.exec(`git config user.email github-actions@github.com`);
             yield exec.exec(`git add .`);

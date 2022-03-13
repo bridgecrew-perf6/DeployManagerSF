@@ -7,6 +7,8 @@ async function run(): Promise<void> {
     core.debug(`Waiting ${ms} milliseconds ...`) // debug is only output if you set the secret `ACTIONS_STEP_DEBUG` to true
     await exec.exec(`echo "${Date.now()}" > here.txt`)
 
+    await exec.exec(`ls`)
+
     await exec.exec(`git config user.name github-actions`)
     await exec.exec(`git config user.email github-actions@github.com`)
     await exec.exec(`git add .`)
