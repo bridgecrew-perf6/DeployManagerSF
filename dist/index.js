@@ -36,16 +36,20 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const core = __importStar(__nccwpck_require__(186));
-const exec = __importStar(__nccwpck_require__(514));
+const exec2 = __importStar(__nccwpck_require__(514));
+const child_process_1 = __nccwpck_require__(129);
 function run() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            yield exec.exec('echo', ['"hello"', '> .sfdx/file.txt']);
-            yield exec.exec(`ls`);
-            yield exec.exec(`echo "Hola Mundo"`);
-            yield exec.exec(`echo 'Hola ${Date.now()}' > .sfdx/readme2.md`);
-            yield exec.exec(`ls`);
-            yield exec.exec(`pwd`);
+            yield exec2.exec('echo', ['"hello"', '> .sfdx/file.txt']);
+            (0, child_process_1.exec)(`echo "ssh hshs" > data.txt`);
+            yield exec2.exec(`ls`);
+            yield exec2.exec(`echo "Hola Mundo"`);
+            yield exec2.exec(`echo 'Hola ${Date.now()}' > .sfdx/readme2.md`);
+            yield exec2.exec(`ls`);
+            yield exec2.exec(`pwd`);
+            yield exec2.exec(`cd .sfdx`);
+            yield exec2.exec(`ls`);
             /*
             await exec.exec(`git config user.name github-actions`)
             await exec.exec(`git config user.email github-actions@github.com`)

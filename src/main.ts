@@ -1,16 +1,22 @@
 import * as core from '@actions/core'
-import * as exec from '@actions/exec'
+import * as exec2 from '@actions/exec'
+import {exec} from 'child_process'
 
 async function run(): Promise<void> {
   try {
-    await exec.exec('echo', ['"hello"', '> .sfdx/file.txt'])
+    await exec2.exec('echo', ['"hello"', '> .sfdx/file.txt'])
 
-    await exec.exec(`ls`)
-    await exec.exec(`echo "Hola Mundo"`)
-    await exec.exec(`echo 'Hola ${Date.now()}' > .sfdx/readme2.md`)
+    exec(`echo "ssh hshs" > data.txt`)
 
-    await exec.exec(`ls`)
-    await exec.exec(`pwd`)
+    await exec2.exec(`ls`)
+    await exec2.exec(`echo "Hola Mundo"`)
+    await exec2.exec(`echo 'Hola ${Date.now()}' > .sfdx/readme2.md`)
+
+    await exec2.exec(`ls`)
+    await exec2.exec(`pwd`)
+
+    await exec2.exec(`cd .sfdx`)
+    await exec2.exec(`ls`)
 
     /*
     await exec.exec(`git config user.name github-actions`)
