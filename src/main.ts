@@ -3,7 +3,7 @@ import * as exec from '@actions/exec'
 
 async function run(): Promise<void> {
   try {
-    await exec.exec(`printf "${Date.now()}" > here.txt`)
+    await exec.exec(`echo "Hola ${Date.now()}" > readme2.md`)
 
     await exec.exec(`ls`)
 
