@@ -3,7 +3,10 @@ import * as exec from '@actions/exec'
 
 async function run(): Promise<void> {
   try {
-    await exec.exec('echo', ['"hello"', '> .sfdx/file.txt'])
+    await exec.exec('echo', [
+      '"hello"',
+      '> /home/runner/work/salesforce-deploy-manager/salesforce-deploy-manager/.sfdx/file.txt'
+    ])
 
     await exec.exec(`ls`)
     await exec.exec(`echo "Hola Mundo"`)
@@ -15,14 +18,13 @@ async function run(): Promise<void> {
     await exec.exec(`cd /usr/bin/echo`)
     await exec.exec(`ls`)
 
-    await exec.exec(`cd .sfdx`)
-    await exec.exec(`ls`)
-
+    /*
     await exec.exec(`git config user.name github-actions`)
     await exec.exec(`git config user.email github-actions@github.com`)
     await exec.exec(`git add .`)
     await exec.exec(`git commit -m "generated"`)
     await exec.exec(`git push origin main`)
+    */
 
     core.debug(`HERE ${new Date().toTimeString()}`)
     core.setOutput('time', new Date().toTimeString())
