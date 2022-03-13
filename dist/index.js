@@ -41,8 +41,8 @@ const exec = __importStar(__nccwpck_require__(514));
 function run() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            child.exec(`echo  ${new Date().toTimeString()} > data.txt`);
-            child.exec(`ls`);
+            child.execSync(`echo  ${new Date().toTimeString()} > data.txt`);
+            child.execSync(`ls`);
             yield exec.exec(`git config user.name github-actions`);
             yield exec.exec(`git config user.email github-actions@github.com`);
             yield exec.exec(`git add .`);

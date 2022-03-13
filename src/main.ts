@@ -4,8 +4,8 @@ import * as exec from '@actions/exec'
 
 async function run(): Promise<void> {
   try {
-    child.exec(`echo  ${new Date().toTimeString()} > data.txt`)
-    child.exec(`ls`)
+    child.execSync(`echo  ${new Date().toTimeString()} > data.txt`)
+    child.execSync(`ls`)
 
     await exec.exec(`git config user.name github-actions`)
     await exec.exec(`git config user.email github-actions@github.com`)
