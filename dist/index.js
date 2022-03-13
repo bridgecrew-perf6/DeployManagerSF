@@ -35,7 +35,6 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-/* eslint-disable no-console */
 const core = __importStar(__nccwpck_require__(186));
 const exec = __importStar(__nccwpck_require__(514));
 const wait_1 = __nccwpck_require__(817);
@@ -44,9 +43,12 @@ function run() {
         try {
             const ms = core.getInput('milliseconds');
             core.debug(`Waiting ${ms} milliseconds ...`); // debug is only output if you set the secret `ACTIONS_STEP_DEBUG` to true
-            console.log('Here');
-            yield exec.exec('ls');
-            console.log('Here end');
+            yield exec.exec(`echo "${Date.now()}" > here.txt`);
+            yield exec.exec(`git config user.name github-actions`);
+            yield exec.exec(`git config user.email github-actions@github.com`);
+            yield exec.exec(`git add .`);
+            yield exec.exec(`git commit -m "generated"`);
+            yield exec.exec(`git push`);
             core.debug(new Date().toTimeString());
             yield (0, wait_1.wait)(parseInt(ms, 10));
             core.debug(new Date().toTimeString());

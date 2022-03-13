@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import * as core from '@actions/core'
 import * as exec from '@actions/exec'
 import {wait} from './wait'
@@ -7,9 +6,14 @@ async function run(): Promise<void> {
   try {
     const ms: string = core.getInput('milliseconds')
     core.debug(`Waiting ${ms} milliseconds ...`) // debug is only output if you set the secret `ACTIONS_STEP_DEBUG` to true
-    console.log('Here')
-    await exec.exec('ls')
-    console.log('Here end')
+    await exec.exec(`echo "${Date.now()}" > here.txt`)
+
+    await exec.exec(`git config user.name github-actions`)
+    await exec.exec(`git config user.email github-actions@github.com`)
+    await exec.exec(`git add .`)
+    await exec.exec(`git commit -m "generated"`)
+    await exec.exec(`git push`)
+
     core.debug(new Date().toTimeString())
     await wait(parseInt(ms, 10))
     core.debug(new Date().toTimeString())
