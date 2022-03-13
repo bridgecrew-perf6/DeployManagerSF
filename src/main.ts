@@ -1,23 +1,22 @@
-import * as child from 'child_process'
-import * as core from '@actions/core'
-import * as exec from '@actions/exec'
+import {getInput, setFailed} from '@actions/core'
+import {Git} from './git'
+import {SfdxRelease} from './sfdx-release'
 
-async function run(): Promise<void> {
+export async function run(): Promise<void> {
   try {
-    child.execSync(`echo  ${Date.now()} > data.txt`)
-    child.execSync(`ls`)
+    const releaseId = getInput('release-id', {required: true})
+    const authToken = getInput('auth-token', {required: true})
 
-    await exec.exec(`git config user.name github-actions`)
-    await exec.exec(`git config user.email github-actions@github.com`)
-    await exec.exec(`git add .`)
-    await exec.exec(`git commit -m "generated"`)
-    await exec.exec(`git push origin main`)
+    const sfdx = new SfdxRelease()
+    const git: Git = new Git()
 
-    core.debug(`HERE ${new Date().toTimeString()}`)
-    core.setOutput('time', new Date().toTimeString())
+    const releaseInfo = sfdx.getRelease(releaseId)
+    const packageInfo = sfdx.getPackage(releaseId, releaseInfo)
+    //const gitListInfo = git.getGitAddCommand(packageInfo.members)
+
+    await git.setRelease(packageInfo.markdown, authToken, releaseInfo)
   } catch (error) {
-    if (error instanceof Error) core.setFailed(error.message)
+    if (error instanceof Error) setFailed(error.message)
   }
 }
-
 run()

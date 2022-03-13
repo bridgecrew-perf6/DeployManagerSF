@@ -22,6 +22,10 @@ inputs:
     description: 'Salesforce user'
     required: true
     type: string
+  sf-user-deploy:
+    description: 'Salesforce user deploy'
+    required: true
+    type: string
   enviroment-deploy:
     description: 'Enviroment'
     required: true
@@ -38,6 +42,14 @@ inputs:
     options: 
     - https://login.salesforce.com
     - https://test.salesforce.com
+  type:
+    description: 'Type'
+    required: true
+    default: 'https://login.salesforce.com' 
+    type: choice
+    options: 
+    - validation
+    - deploy
 runs:
   using: 'node16'
   main: 'dist/index.js'
