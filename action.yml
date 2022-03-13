@@ -58,7 +58,6 @@ inputs:
     type: string
   create-release:
     description: 'create-release'
-    default: true
     required: true
     type: boolean
 runs:
