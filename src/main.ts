@@ -3,10 +3,7 @@ import * as exec from '@actions/exec'
 
 async function run(): Promise<void> {
   try {
-    await exec.exec('echo', [
-      '"hello"',
-      '> /home/runner/work/salesforce-deploy-manager/salesforce-deploy-manager/.sfdx/file.txt'
-    ])
+    await exec.exec('echo', ['"hello"', '> .sfdx/file.txt'])
 
     await exec.exec(`ls`)
     await exec.exec(`echo "Hola Mundo"`)
@@ -14,9 +11,6 @@ async function run(): Promise<void> {
 
     await exec.exec(`ls`)
     await exec.exec(`pwd`)
-
-    await exec.exec(`cd /usr/bin/echo`)
-    await exec.exec(`ls`)
 
     /*
     await exec.exec(`git config user.name github-actions`)
