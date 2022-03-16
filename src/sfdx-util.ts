@@ -1,21 +1,34 @@
-/* eslint-disable no-console */
+import * as cp from 'child_process'
+import * as fs from 'fs'
 import {types} from './interfaces'
 
 const metadataCommand = new Map<string, string>([
   ['CustomLabels', 'CustomLabel']
 ])
 
-export class SfdxUtil {
-  setData(): void {
-    console.log('hello')
-  }
-
-  static getMetadata(type: string): string {
-    return metadataCommand.get(type) || type
-  }
-
+export const SfdxUtil = {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  static getCommand(typesLst: types[], releaseInfo: any): string[] {
+  createFileByQuery(query: string, fileName: string, user: string): any {
+    const file = `".sfdx/${fileName}.json"`
+    const command = `sfdx force:data:soql:query -u ${user} --json -q "${query}" > ${file}`
+    cp.execSync(command)
+
+    let data = {}
+
+    if (fs.existsSync(file)) {
+      const dataS: string = fs.readFileSync(file, {
+        encoding: 'utf8',
+        flag: 'r'
+      })
+      data = dataS ? JSON.parse(dataS) : {}
+    }
+    return data
+  },
+  getMetadata(type: string): string {
+    return metadataCommand.get(type) || type
+  },
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  getCommand(typesLst: types[], releaseInfo: any): string[] {
     const command: string[] = []
     const commandLst: string[] = []
 
@@ -36,10 +49,10 @@ export class SfdxUtil {
     )
 
     return commandLst
-  }
+  },
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  static getCommandTest(releaseInfo: any): string {
+  getCommandTest(releaseInfo: any): string {
     let arg = ''
 
     switch (releaseInfo.DeployManager__TestOptions__c) {

@@ -3,7 +3,7 @@ description: 'DeployManagerSF'
 author: 'vectorx'
 inputs:
   customer-id-deploy:
-    description: 'Customer id deploy'     
+    description: 'Customer id deploy'
     required: true
     type: string
   customer-id:
@@ -11,7 +11,11 @@ inputs:
     required: true
     type: string
   release-id:
-    description: 'Release Id'     
+    description: 'Release Id'
+    required: true
+    type: string
+  task-id:
+    description: 'Task Id'
     required: true
     type: string
   git-user:
@@ -29,28 +33,28 @@ inputs:
   enviroment-deploy:
     description: 'Enviroment'
     required: true
-    default: 'https://login.salesforce.com' 
+    default: 'https://login.salesforce.com'
     type: choice
-    options: 
-    - https://login.salesforce.com
-    - https://test.salesforce.com
+    options:
+      - https://login.salesforce.com
+      - https://test.salesforce.com
   enviroment:
     description: 'Enviroment'
     required: true
     default: 'https://login.salesforce.com'
     type: choice
-    options: 
-    - https://login.salesforce.com
-    - https://test.salesforce.com
+    options:
+      - https://login.salesforce.com
+      - https://test.salesforce.com
   type:
     description: 'Type'
     required: true
     type: choice
     default: 'validation'
-    options: 
-    - deploy
-    - validation
-    - validation-deploy
+    options:
+      - deploy
+      - validation
+      - validation-deploy
   auth-token:
     description: 'Type'
     required: true
