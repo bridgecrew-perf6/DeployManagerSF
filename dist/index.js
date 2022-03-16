@@ -137,8 +137,11 @@ function validation() {
             const releaseId = (0, core_1.getInput)('release-id', { required: true });
             const taskId = (0, core_1.getInput)('task-id', { required: true });
             const sfUser = (0, core_1.getInput)('sf-user', { required: true });
+            const enviroment = (0, core_1.getInput)('enviroment', { required: true });
+            const customerId = (0, core_1.getInput)('customer-id', { required: true });
             //const authToken = getInput('auth-token', {required: true})
             //const createRelease = getInput('create-release', {required: true})
+            sfdx_util_1.SfdxUtil.authorice(sfUser, 'server.key', customerId, enviroment);
             const qRelease = queries_1.Queries.getRelase(releaseId);
             const release = sfdx_util_1.SfdxUtil.createFileByQuery(qRelease, `realease${releaseId}`, sfUser);
             console.log(release);
@@ -335,6 +338,7 @@ const metadataCommand = new Map([
     ['CustomLabels', 'CustomLabel']
 ]);
 exports.SfdxUtil = {
+    isAuthoriced: false,
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     createFileByQuery(query, fileName, user) {
         const file = `".sfdx/${fileName}.json"`;
@@ -349,6 +353,10 @@ exports.SfdxUtil = {
             data = dataS ? JSON.parse(dataS) : {};
         }
         return data;
+    },
+    authorice(user, keyName, customerId, enviroment) {
+        const command = `sfdx force:auth:jwt:grant --clientid ${customerId} --jwtkeyfile '.sfdx/${keyName}' --username '${user}' -r '${enviroment}'`;
+        cp.execSync(command);
     },
     getMetadata(type) {
         return metadataCommand.get(type) || type;

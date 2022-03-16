@@ -7,6 +7,7 @@ const metadataCommand = new Map<string, string>([
 ])
 
 export const SfdxUtil = {
+  isAuthoriced: false,
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   createFileByQuery(query: string, fileName: string, user: string): any {
     const file = `".sfdx/${fileName}.json"`
@@ -23,6 +24,15 @@ export const SfdxUtil = {
       data = dataS ? JSON.parse(dataS) : {}
     }
     return data
+  },
+  authorice(
+    user: string,
+    keyName: string,
+    customerId: string,
+    enviroment: string
+  ) {
+    const command = `sfdx force:auth:jwt:grant --clientid ${customerId} --jwtkeyfile '.sfdx/${keyName}' --username '${user}' -r '${enviroment}'`
+    cp.execSync(command)
   },
   getMetadata(type: string): string {
     return metadataCommand.get(type) || type

@@ -14,8 +14,12 @@ export async function validation(): Promise<void> {
     const releaseId = getInput('release-id', {required: true})
     const taskId = getInput('task-id', {required: true})
     const sfUser = getInput('sf-user', {required: true})
+    const enviroment = getInput('enviroment', {required: true})
+    const customerId = getInput('customer-id', {required: true})
     //const authToken = getInput('auth-token', {required: true})
     //const createRelease = getInput('create-release', {required: true})
+
+    SfdxUtil.authorice(sfUser, 'server.key', customerId, enviroment)
 
     const qRelease = Queries.getRelase(releaseId)
     const release = SfdxUtil.createFileByQuery(
