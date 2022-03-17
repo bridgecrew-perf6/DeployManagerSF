@@ -36,7 +36,7 @@ export const Queries = {
     soql.add('DeployManager__Parent__c')
     soql.add('DeployManager__Release__c')
     soql.add('DeployManager__Type__c')
-    soql.add('Unique__c')
+    soql.add('DeployManager__Unique__c')
     soql.setCondition(`DeployManager__Release__c ='${releaseId}'`)
 
     return soql.getQuery()
