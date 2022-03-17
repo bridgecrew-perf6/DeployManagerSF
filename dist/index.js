@@ -218,6 +218,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.Metadata = void 0;
+/* eslint-disable no-console */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 const xml2js = __importStar(__nccwpck_require__(6189));
 const constants_1 = __nccwpck_require__(5105);
@@ -232,7 +233,9 @@ class Metadata {
         const pckXML = constants_1.XMLPCK;
         const xml = {};
         const types = [];
+        console.log(this._components);
         for (const type of this._components.keys()) {
+            console.log(type);
             xml[type] = {
                 members: [],
                 name: type

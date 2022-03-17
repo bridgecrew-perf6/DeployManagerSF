@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import * as xml2js from 'xml2js'
 import {XMLPCK} from './constants'
@@ -18,8 +19,9 @@ export class Metadata {
     const pckXML: packageXML = XMLPCK
     const xml: any = {}
     const types = []
-
+    console.log(this._components)
     for (const type of this._components.keys()) {
+      console.log(type)
       xml[type] = {
         members: [],
         name: type
