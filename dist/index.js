@@ -150,10 +150,8 @@ function validation() {
             console.log(tasks);
             const qComponents = queries_1.Queries.getComponents(releaseId);
             const components = sfdx_util_1.SfdxUtil.createFileByQuery(qComponents, `components${releaseId}`, sfUser);
-            console.log(components);
             const map = soql_util_1.SoqlUtil.recordToMapGroup('Type__c', components.result.records);
-            console.log(map);
-            const m = new metadata_1.Metadata(release, components, tasks);
+            const m = new metadata_1.Metadata(release, map, tasks);
             console.log(m.getPackage());
             /*
             const sfdx = new SfdxRelease()
@@ -232,24 +230,21 @@ class Metadata {
     getPackage() {
         const builder = new xml2js.Builder();
         const pckXML = constants_1.XMLPCK;
-        //const xml: any = {}
-        //const types = []
-        // eslint-disable-next-line no-console
-        console.log(this._components.keys());
-        /*
+        const xml = {};
+        const types = [];
         for (const type of this._components.keys()) {
-          xml[type] = {
-            members: [],
-            name: type
-          }
-          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-          // @ts-ignore: Object is possibly 'null'.
-          for (const component of this._components.get(type)) {
-            xml[type].members.push(component.DeployManager__FullName__c)
-          }
-          types.push(xml[type])
-        }*/
-        //pckXML.Package.types = types
+            xml[type] = {
+                members: [],
+                name: type
+            };
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            // @ts-ignore: Object is possibly 'null'.
+            for (const component of this._components.get(type)) {
+                xml[type].members.push(component.DeployManager__FullName__c);
+            }
+            types.push(xml[type]);
+        }
+        pckXML.Package.types = types;
         return builder.buildObject(pckXML);
     }
 }

@@ -81,7 +81,10 @@ export class SoqlUtil {
     return map
   }
 
-  static recordToMapGroup(fieldName: string, records: any[]): Map<string, any> {
+  static recordToMapGroup(
+    fieldName: string,
+    records: any[]
+  ): Map<string, Set<any>> {
     const map: Map<string, Set<any>> = new Map()
 
     for (const record of records) {

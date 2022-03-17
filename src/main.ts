@@ -43,12 +43,10 @@ export async function validation(): Promise<void> {
       `components${releaseId}`,
       sfUser
     )
-    console.log(components)
 
     const map = SoqlUtil.recordToMapGroup('Type__c', components.result.records)
-    console.log(map)
 
-    const m = new Metadata(release, components, tasks)
+    const m = new Metadata(release, map, tasks)
     console.log(m.getPackage())
 
     /*
