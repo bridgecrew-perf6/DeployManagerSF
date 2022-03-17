@@ -88,12 +88,14 @@ export class SoqlUtil {
     const map: Map<string, Set<any>> = new Map()
 
     for (const record of records) {
-      if (!map.has(fieldName)) {
-        map.set(fieldName, new Set())
+      const type: string = record[fieldName]
+
+      if (!map.has(type)) {
+        map.set(type, new Set())
       }
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore: Object is possibly 'null'.
-      map.get(fieldName).add(record)
+      map.get(type).add(record)
     }
 
     return map

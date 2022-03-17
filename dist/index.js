@@ -150,7 +150,7 @@ function validation() {
             console.log(tasks);
             const qComponents = queries_1.Queries.getComponents(releaseId);
             const components = sfdx_util_1.SfdxUtil.createFileByQuery(qComponents, `components${releaseId}`, sfUser);
-            const map = soql_util_1.SoqlUtil.recordToMapGroup('Type__c', components.result.records);
+            const map = soql_util_1.SoqlUtil.recordToMapGroup('DeployManager__Type__c', components.result.records);
             const m = new metadata_1.Metadata(release, map, tasks);
             console.log(m.getPackage());
             /*
@@ -476,12 +476,13 @@ class SoqlUtil {
     static recordToMapGroup(fieldName, records) {
         const map = new Map();
         for (const record of records) {
-            if (!map.has(fieldName)) {
-                map.set(fieldName, new Set());
+            const type = record[fieldName];
+            if (!map.has(type)) {
+                map.set(type, new Set());
             }
             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
             // @ts-ignore: Object is possibly 'null'.
-            map.get(fieldName).add(record);
+            map.get(type).add(record);
         }
         return map;
     }
