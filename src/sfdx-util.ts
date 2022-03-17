@@ -12,7 +12,7 @@ export const SfdxUtil = {
   isAuthoriced: false,
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   createFileByQuery(query: string, fileName: string, user: string): any {
-    const file = `".sfdx/${fileName}.json"`
+    const file = `./.sfdx/${fileName}.json`
     const command = `sfdx force:data:soql:query -u ${user} --json -q "${query}" > ${file}`
     cp.execSync(command)
 
