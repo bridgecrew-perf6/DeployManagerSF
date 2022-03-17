@@ -15,9 +15,6 @@ export const SfdxUtil = {
     const file = `./.sfdx/${fileName}.json`
     const command = `sfdx force:data:soql:query -u ${user} --json -q "${query}" > ${file}`
     cp.execSync(command)
-    cp.execSync('ls')
-    cp.execSync('cd .sfdx')
-    cp.execSync('ls')
 
     let data = {}
 

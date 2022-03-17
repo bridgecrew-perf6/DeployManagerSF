@@ -16,9 +16,12 @@ export class Metadata {
   getPackage(): string {
     const builder = new xml2js.Builder()
     const pckXML: packageXML = XMLPCK
-    const xml: any = {}
-    const types = []
+    //const xml: any = {}
+    //const types = []
 
+    // eslint-disable-next-line no-console
+    console.log(this._components.keys())
+    /*
     for (const type of this._components.keys()) {
       xml[type] = {
         members: [],
@@ -30,8 +33,8 @@ export class Metadata {
         xml[type].members.push(component.DeployManager__FullName__c)
       }
       types.push(xml[type])
-    }
-    pckXML.Package.types = types
+    }*/
+    //pckXML.Package.types = types
 
     return builder.buildObject(pckXML)
   }
