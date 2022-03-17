@@ -334,6 +334,7 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.SfdxUtil = void 0;
 const cp = __importStar(__nccwpck_require__(3129));
 const fs = __importStar(__nccwpck_require__(5747));
+const core_1 = __nccwpck_require__(2186);
 const metadataCommand = new Map([
     ['CustomLabels', 'CustomLabel']
 ]);
@@ -350,7 +351,12 @@ exports.SfdxUtil = {
                 encoding: 'utf8',
                 flag: 'r'
             });
+            (0, core_1.info)('HERE');
+            (0, core_1.info)(dataS);
             data = dataS ? JSON.parse(dataS) : {};
+        }
+        else {
+            (0, core_1.setFailed)('no file found');
         }
         return data;
     },

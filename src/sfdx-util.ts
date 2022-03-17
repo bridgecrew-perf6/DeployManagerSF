@@ -1,6 +1,6 @@
-import { setFailed } from '@actions/core'
 import * as cp from 'child_process'
 import * as fs from 'fs'
+import {info, setFailed} from '@actions/core'
 import {types} from './interfaces'
 
 const metadataCommand = new Map<string, string>([
@@ -22,6 +22,8 @@ export const SfdxUtil = {
         encoding: 'utf8',
         flag: 'r'
       })
+      info('HERE')
+      info(dataS)
       data = dataS ? JSON.parse(dataS) : {}
     } else {
       setFailed('no file found')
