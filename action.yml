@@ -1,6 +1,9 @@
 name: 'DeployManagerSF'
 description: 'DeployManagerSF'
 author: 'vectorx'
+branding:
+  icon: 'download-cloud'  
+  color: 'blue'
 inputs:
   customer-id-deploy:
     description: 'Customer id deploy'

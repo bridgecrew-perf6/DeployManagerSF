@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import * as cp from 'child_process'
 import * as fs from 'fs'
 import {setFailed} from '@actions/core'
@@ -23,8 +22,6 @@ export const SfdxUtil = {
         encoding: 'utf8',
         flag: 'r'
       })
-      console.log('HERE')
-      console.log(dataS)
       data = dataS ? JSON.parse(dataS) : {}
     } else {
       setFailed('no file found')

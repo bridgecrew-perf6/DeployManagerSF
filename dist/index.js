@@ -335,7 +335,6 @@ var __importStar = (this && this.__importStar) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.SfdxUtil = void 0;
-/* eslint-disable no-console */
 const cp = __importStar(__nccwpck_require__(3129));
 const fs = __importStar(__nccwpck_require__(5747));
 const core_1 = __nccwpck_require__(2186);
@@ -355,8 +354,6 @@ exports.SfdxUtil = {
                 encoding: 'utf8',
                 flag: 'r'
             });
-            console.log('HERE');
-            console.log(dataS);
             data = dataS ? JSON.parse(dataS) : {};
         }
         else {
