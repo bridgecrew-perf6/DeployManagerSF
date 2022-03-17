@@ -265,14 +265,14 @@ exports.Queries = void 0;
 const soql_util_1 = __nccwpck_require__(8290);
 exports.Queries = {
     getRelase(releaseId) {
-        const soql = new soql_util_1.SoqlUtil('Release__c');
+        const soql = new soql_util_1.SoqlUtil('DeployManager__Release__c');
         soql.add('Id');
         soql.add('Name');
-        soql.add('Branch__c');
-        soql.add('Enviroment__c');
-        soql.add('TestClasses__c');
-        soql.add('TestOptions__c');
-        soql.add('IsDestructive__c');
+        soql.add('DeployManager__Branch__c');
+        soql.add('DeployManager__Enviroment__c');
+        soql.add('DeployManager__TestClasses__c');
+        soql.add('DeployManager__TestOptions__c');
+        soql.add('DeployManager__IsDestructive__c');
         soql.setCondition(`Id = '${releaseId}'`);
         return soql.getQuery();
     },
@@ -288,17 +288,17 @@ exports.Queries = {
         return soql.getQuery();
     },
     getComponents(releaseId) {
-        const soql = new soql_util_1.SoqlUtil('Member__c');
+        const soql = new soql_util_1.SoqlUtil('DeployManager__Member__c');
         soql.add('Id');
-        soql.add('ApiName__c');
-        soql.add('FullName__c');
+        soql.add('DeployManager__ApiName__c');
+        soql.add('DeployManager__FullName__c');
         soql.add('Id');
         soql.add('Name');
-        soql.add('Parent__c');
-        soql.add('Release__c');
-        soql.add('Type__c');
+        soql.add('DeployManager__Parent__c');
+        soql.add('DeployManager__Release__c');
+        soql.add('DeployManager__Type__c');
         soql.add('Unique__c');
-        soql.setCondition(`Release__c ='${releaseId}'`);
+        soql.setCondition(`DeployManager__Release__c ='${releaseId}'`);
         return soql.getQuery();
     }
 };

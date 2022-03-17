@@ -2,14 +2,14 @@ import {SoqlUtil} from './soql-util'
 
 export const Queries = {
   getRelase(releaseId: string): string {
-    const soql: SoqlUtil = new SoqlUtil('Release__c')
+    const soql: SoqlUtil = new SoqlUtil('DeployManager__Release__c')
     soql.add('Id')
     soql.add('Name')
-    soql.add('Branch__c')
-    soql.add('Enviroment__c')
-    soql.add('TestClasses__c')
-    soql.add('TestOptions__c')
-    soql.add('IsDestructive__c')
+    soql.add('DeployManager__Branch__c')
+    soql.add('DeployManager__Enviroment__c')
+    soql.add('DeployManager__TestClasses__c')
+    soql.add('DeployManager__TestOptions__c')
+    soql.add('DeployManager__IsDestructive__c')
     soql.setCondition(`Id = '${releaseId}'`)
     return soql.getQuery()
   },
@@ -27,17 +27,17 @@ export const Queries = {
     return soql.getQuery()
   },
   getComponents(releaseId: string): string {
-    const soql: SoqlUtil = new SoqlUtil('Member__c')
+    const soql: SoqlUtil = new SoqlUtil('DeployManager__Member__c')
     soql.add('Id')
-    soql.add('ApiName__c')
-    soql.add('FullName__c')
+    soql.add('DeployManager__ApiName__c')
+    soql.add('DeployManager__FullName__c')
     soql.add('Id')
     soql.add('Name')
-    soql.add('Parent__c')
-    soql.add('Release__c')
-    soql.add('Type__c')
+    soql.add('DeployManager__Parent__c')
+    soql.add('DeployManager__Release__c')
+    soql.add('DeployManager__Type__c')
     soql.add('Unique__c')
-    soql.setCondition(`Release__c ='${releaseId}'`)
+    soql.setCondition(`DeployManager__Release__c ='${releaseId}'`)
 
     return soql.getQuery()
   }
