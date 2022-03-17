@@ -1,3 +1,4 @@
+import { setFailed } from '@actions/core'
 import * as cp from 'child_process'
 import * as fs from 'fs'
 import {types} from './interfaces'
@@ -22,6 +23,8 @@ export const SfdxUtil = {
         flag: 'r'
       })
       data = dataS ? JSON.parse(dataS) : {}
+    } else {
+      setFailed('no file found')
     }
     return data
   },
