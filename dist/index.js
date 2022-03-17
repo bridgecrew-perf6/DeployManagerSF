@@ -277,7 +277,7 @@ exports.Queries = {
         return soql.getQuery();
     },
     getTasks(taskId, releaseId) {
-        const soql = new soql_util_1.SoqlUtil('Tasks');
+        const soql = new soql_util_1.SoqlUtil('Task');
         soql.add('Id');
         soql.add('Subject');
         soql.add('Description');
