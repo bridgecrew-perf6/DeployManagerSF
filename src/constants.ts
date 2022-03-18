@@ -56,8 +56,8 @@ export const pathsSFDX = new Map<String, TypesFloder>([
       directoryName: 'flows',
       inFolder: false,
       metaFile: false,
-      suffix: 'layout',
-      xmlName: 'Layout'
+      suffix: 'flow',
+      xmlName: 'Flow'
     }
   ],
   [
