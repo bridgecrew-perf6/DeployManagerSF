@@ -305,7 +305,7 @@ class Markdown {
                 tasks += `### :memo: ${tsk.Subject} (${tsk.RecordType.Name}) \n\n ${tsk.Description} \n\n `;
                 if (tsk.ContentDocumentLinks) {
                     for (const link of tsk.ContentDocumentLinks.records) {
-                        tasks += `[${link.ContentDocument.Title}](${url}/sfc/servlet.shepherd/document/download/${link.ContentDocumentId}?operationContext=S1 "${link.ContentDocument.Title}")`;
+                        tasks += `+ [${link.ContentDocument.Title}](${url}/sfc/servlet.shepherd/document/download/${link.ContentDocumentId}?operationContext=S1 "${link.ContentDocument.Title}")\n`;
                     }
                 }
             }
