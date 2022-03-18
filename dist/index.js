@@ -60,11 +60,11 @@ exports.pathsSFDX = new Map([
     [
         'Flow',
         {
-            "directoryName": "flows",
-            "inFolder": false,
-            "metaFile": false,
-            "suffix": "flow",
-            "xmlName": "Flow"
+            directoryName: 'flows',
+            inFolder: false,
+            metaFile: false,
+            suffix: 'flow',
+            xmlName: 'Flow'
         }
     ],
     [
@@ -299,9 +299,15 @@ class Markdown {
     }
     getTasks() {
         let tasks = '';
+        const url = 'https://login.salesforce.com';
         for (const tsk of this._tasks) {
             if (tsk.RecordType.Name !== 'CD/CI') {
                 tasks += `### :memo: ${tsk.Subject} (${tsk.RecordType.Name}) \n\n ${tsk.Description} \n\n `;
+                if (tsk.ContentDocumentLink) {
+                    for (const link of tsk.ContentDocumentLink) {
+                        tasks += `[${link.ContentDocument.Title}](${url}/sfc/servlet.shepherd/document/download/${link.ContentDocumentId}?operationContext=S1 "${link.ContentDocument.Title}")`;
+                    }
+                }
             }
         }
         return `\n${tasks}\n`;
@@ -479,10 +485,18 @@ class Queries {
     }
     getTasks(taskId, releaseId) {
         const soql = new soql_util_1.SoqlUtil('Task');
+        const cd = new soql_util_1.SoqlUtil('ContentDocumentLink');
+        cd.add('Id');
+        cd.add('ContentDocument.FileType');
+        cd.add('ContentDocument.FileExtension');
+        cd.add('ContentDocument.Title');
+        cd.add('ContentDocumentId');
         soql.add('Id');
         soql.add('Subject');
         soql.add('Description');
         soql.add('RecordType.Name');
+        soql.add('RecordType.Name');
+        soql.add(`(${cd.getQuery()})`);
         soql.setCondition(`(RecordType.Name IN ('Post Deployment','Pre Deployment') OR Id='${taskId}')`);
         soql.setCondition(`WhatId ='${releaseId}'`);
         soql.setOrder('RecordType.Name');

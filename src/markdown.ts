@@ -58,9 +58,15 @@ export class Markdown {
 
   getTasks(): string {
     let tasks = ''
+    const url = 'https://login.salesforce.com'
     for (const tsk of this._tasks) {
       if (tsk.RecordType.Name !== 'CD/CI') {
         tasks += `### :memo: ${tsk.Subject} (${tsk.RecordType.Name}) \n\n ${tsk.Description} \n\n `
+        if (tsk.ContentDocumentLink) {
+          for (const link of tsk.ContentDocumentLink) {
+            tasks += `[${link.ContentDocument.Title}](${url}/sfc/servlet.shepherd/document/download/${link.ContentDocumentId}?operationContext=S1 "${link.ContentDocument.Title}")`
+          }
+        }
       }
     }
     return `\n${tasks}\n`

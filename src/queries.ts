@@ -15,10 +15,20 @@ export class Queries {
   }
   getTasks(taskId: string, releaseId: string): string {
     const soql: SoqlUtil = new SoqlUtil('Task')
+    const cd: SoqlUtil = new SoqlUtil('ContentDocumentLink')
+    cd.add('Id')
+    cd.add('ContentDocument.FileType')
+    cd.add('ContentDocument.FileExtension')
+    cd.add('ContentDocument.Title')
+    cd.add('ContentDocumentId')
+
     soql.add('Id')
     soql.add('Subject')
     soql.add('Description')
     soql.add('RecordType.Name')
+    soql.add('RecordType.Name')
+    soql.add(`(${cd.getQuery()})`)
+
     soql.setCondition(
       `(RecordType.Name IN ('Post Deployment','Pre Deployment') OR Id='${taskId}')`
     )
