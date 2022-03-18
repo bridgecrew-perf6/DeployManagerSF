@@ -1,35 +1,38 @@
 /* eslint-disable no-console */
 import {getInput, info, setFailed} from '@actions/core'
+import {Git} from './git'
+import {Markdown} from './markdown'
 import {Metadata} from './metadata'
-//import {Git} from './git'
 import {Queries} from './queries'
-//import {SfdxRelease} from './sfdx-release'
 import {SfdxUtil} from './sfdx-util'
 import {SoqlUtil} from './soql-util'
-//import {SoqlUtil} from './soql-util'
 
 export async function validation(): Promise<void> {
   try {
     info('VALIDATION')
     const releaseId = getInput('release-id', {required: true})
     const taskId = getInput('task-id', {required: true})
+
     const sfUser = getInput('sf-user', {required: true})
+    const sfUserDeploy = getInput('sf-user-deploy', {required: true})
+
     const enviroment = getInput('enviroment', {required: true})
     const customerId = getInput('customer-id', {required: true})
-    //const authToken = getInput('auth-token', {required: true})
-    //const createRelease = getInput('create-release', {required: true})
+    const authToken = getInput('auth-token', {required: true})
+    const createRelease = getInput('create-release', {required: true})
 
     SfdxUtil.authorice(sfUser, 'server.key', customerId, enviroment)
 
-    const qRelease = Queries.getRelase(releaseId)
+    const q: Queries = new Queries()
+
+    const qRelease = q.getRelase(releaseId)
     const release = SfdxUtil.createFileByQuery(
       qRelease,
       `realease${releaseId}`,
       sfUser
     )
-    console.log(release)
 
-    const qTasks = Queries.getTasks(taskId, releaseId)
+    const qTasks = q.getTasks(taskId, releaseId)
     const tasks = SfdxUtil.createFileByQuery(
       qTasks,
       `tasks${releaseId}`,
@@ -37,7 +40,7 @@ export async function validation(): Promise<void> {
     )
     console.log(tasks)
 
-    const qComponents = Queries.getComponents(releaseId)
+    const qComponents = q.getComponents(releaseId)
     const components = SfdxUtil.createFileByQuery(
       qComponents,
       `components${releaseId}`,
@@ -49,20 +52,29 @@ export async function validation(): Promise<void> {
       components.result.records
     )
 
-    const m = new Metadata(release, map, tasks)
-    console.log(m.getPackage())
-
-    /*
-    const sfdx = new SfdxRelease()
-    const git: Git = new Git()
-
-    const releaseInfo = sfdx.getRelease(releaseId)
-    const packageInfo = sfdx.getPackage(releaseId, releaseInfo)
+    const m = new Metadata(release.result.records, map, sfUser, sfUserDeploy)
+    const xmlPackage = m.getPackage()
+    const sfdxRetrieve: string = m.getSourceSfdx()
+    const sfdxDeploy: string = m.getSourceSfdx()
+    const gitCommand: string = m.getGit()
 
     if (createRelease === 'true') {
-      await git.setRelease(packageInfo.markdown, authToken, releaseInfo)
+      const doc = new Markdown(
+        release.result.records,
+        map,
+        tasks.result.records,
+        sfUser,
+        sfUserDeploy
+      )
+
+      doc.setCode(xmlPackage, 'xml', 'Package')
+      doc.setCode(sfdxRetrieve, 'shell', 'Retrieve')
+      doc.setCode(sfdxDeploy, 'shell', 'Deploy')
+      doc.setCode(gitCommand, 'shell', 'Git')
+
+      const gitClass: Git = new Git()
+      gitClass.setRelease(doc.getRelease(), authToken)
     }
-    */
   } catch (error) {
     if (error instanceof Error) setFailed(error.message)
   }

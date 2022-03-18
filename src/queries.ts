@@ -1,6 +1,6 @@
 import {SoqlUtil} from './soql-util'
 
-export const Queries = {
+export class Queries {
   getRelase(releaseId: string): string {
     const soql: SoqlUtil = new SoqlUtil('DeployManager__Release__c')
     soql.add('Id')
@@ -12,7 +12,7 @@ export const Queries = {
     soql.add('DeployManager__IsDestructive__c')
     soql.setCondition(`Id = '${releaseId}'`)
     return soql.getQuery()
-  },
+  }
   getTasks(taskId: string, releaseId: string): string {
     const soql: SoqlUtil = new SoqlUtil('Task')
     soql.add('Id')
@@ -25,7 +25,7 @@ export const Queries = {
     soql.setCondition(`WhatId ='${releaseId}'`)
     soql.setOrder('RecordType.Name')
     return soql.getQuery()
-  },
+  }
   getComponents(releaseId: string): string {
     const soql: SoqlUtil = new SoqlUtil('DeployManager__Member__c')
     soql.add('Id')
