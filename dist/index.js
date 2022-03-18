@@ -398,7 +398,7 @@ class Metadata {
         for (const type of this._components.keys()) {
             const patInfo = constants_1.pathsSFDX.get(type);
             if (patInfo === undefined) {
-                (0, core_1.setFailed)('There is no metadata definition');
+                (0, core_1.setFailed)(`There is no metadata definition {type}`);
                 continue;
             }
             // eslint-disable-next-line @typescript-eslint/ban-ts-comment

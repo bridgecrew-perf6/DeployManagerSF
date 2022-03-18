@@ -85,7 +85,7 @@ export class Metadata {
     for (const type of this._components.keys()) {
       const patInfo: TypesFloder | undefined = pathsSFDX.get(type)
       if (patInfo === undefined) {
-        setFailed('There is no metadata definition')
+        setFailed(`There is no metadata definition {type}`)
         continue
       }
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
