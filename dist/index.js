@@ -485,7 +485,7 @@ class Queries {
     }
     getTasks(taskId, releaseId) {
         const soql = new soql_util_1.SoqlUtil('Task');
-        const cd = new soql_util_1.SoqlUtil('ContentDocumentLink');
+        const cd = new soql_util_1.SoqlUtil('ContentDocumentLinks');
         cd.add('Id');
         cd.add('ContentDocument.FileType');
         cd.add('ContentDocument.FileExtension');

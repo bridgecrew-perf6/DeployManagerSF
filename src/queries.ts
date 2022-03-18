@@ -15,7 +15,7 @@ export class Queries {
   }
   getTasks(taskId: string, releaseId: string): string {
     const soql: SoqlUtil = new SoqlUtil('Task')
-    const cd: SoqlUtil = new SoqlUtil('ContentDocumentLink')
+    const cd: SoqlUtil = new SoqlUtil('ContentDocumentLinks')
     cd.add('Id')
     cd.add('ContentDocument.FileType')
     cd.add('ContentDocument.FileExtension')
