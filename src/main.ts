@@ -73,7 +73,7 @@ export async function validation(): Promise<void> {
       doc.setCode(gitCommand, 'shell', 'Git')
 
       const gitClass: Git = new Git()
-      gitClass.setRelease(doc.getRelease(), authToken)
+      gitClass.setRelease(doc.getRelease(), authToken, release)
     }
   } catch (error) {
     if (error instanceof Error) setFailed(error.message)

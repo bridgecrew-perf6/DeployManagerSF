@@ -7,17 +7,6 @@ export const XMLPCK: packageXML = {
   }
 }
 
-// eslint-disable-next-line no-shadow
-export enum API {
-  CustomField,
-  StaticResource,
-  LightningComponentBundle,
-  CustomObject,
-  ApexClass,
-  Layout,
-  CustomLabels
-}
-
 export const pathsSFDX = new Map<String, TypesFloder>([
   [
     'CustomObject',

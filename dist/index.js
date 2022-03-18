@@ -7,24 +7,13 @@ require('./sourcemap-register.js');/******/ (() => { // webpackBootstrap
 "use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.pathsSFDX = exports.API = exports.XMLPCK = void 0;
+exports.pathsSFDX = exports.XMLPCK = void 0;
 exports.XMLPCK = {
     Package: {
         $: { xmlns: 'http://soap.sforce.com/2006/04/metadata' },
         version: '54.0'
     }
 };
-// eslint-disable-next-line no-shadow
-var API;
-(function (API) {
-    API[API["CustomField"] = 0] = "CustomField";
-    API[API["StaticResource"] = 1] = "StaticResource";
-    API[API["LightningComponentBundle"] = 2] = "LightningComponentBundle";
-    API[API["CustomObject"] = 3] = "CustomObject";
-    API[API["ApexClass"] = 4] = "ApexClass";
-    API[API["Layout"] = 5] = "Layout";
-    API[API["CustomLabels"] = 6] = "CustomLabels";
-})(API = exports.API || (exports.API = {}));
 exports.pathsSFDX = new Map([
     [
         'CustomObject',
@@ -154,14 +143,14 @@ const github = __importStar(__nccwpck_require__(5438));
 class Git {
     setRelease(markdown, authToken, 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    releaseInfo) {
+    release) {
         return __awaiter(this, void 0, void 0, function* () {
             const octokit = github.getOctokit(`${authToken}`);
             return octokit.rest.repos.createRelease({
                 owner: github.context.repo.owner,
                 repo: github.context.repo.repo,
                 tag_name: 'v0.0.1-rc0',
-                name: `${releaseInfo.Name}`,
+                name: `${release[0].Name}`,
                 body: markdown,
                 prerelease: true,
                 draft: true
@@ -232,7 +221,7 @@ function validation() {
                 doc.setCode(sfdxDeploy, 'shell', 'Deploy');
                 doc.setCode(gitCommand, 'shell', 'Git');
                 const gitClass = new git_1.Git();
-                gitClass.setRelease(doc.getRelease(), authToken);
+                gitClass.setRelease(doc.getRelease(), authToken, release);
             }
         }
         catch (error) {
