@@ -69,6 +69,16 @@ exports.pathsSFDX = new Map([
         }
     ],
     [
+        'Flow',
+        {
+            directoryName: 'flows',
+            inFolder: false,
+            metaFile: false,
+            suffix: 'layout',
+            xmlName: 'Layout'
+        }
+    ],
+    [
         'CustomField',
         {
             directoryName: 'objects',
