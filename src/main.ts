@@ -30,7 +30,7 @@ export async function validation(): Promise<void> {
       qRelease,
       `realease${releaseId}`,
       sfUser
-    )
+    ).result.records
 
     const qTasks = q.getTasks(taskId, releaseId)
     const tasks = SfdxUtil.createFileByQuery(
@@ -52,7 +52,7 @@ export async function validation(): Promise<void> {
       components.result.records
     )
 
-    const m = new Metadata(release.result.records, map, sfUser, sfUserDeploy)
+    const m = new Metadata(release, map, sfUser, sfUserDeploy)
     const xmlPackage = m.getPackage()
     const sfdxRetrieve: string = m.getSourceSfdx()
     const sfdxDeploy: string = m.getSourceSfdx()
@@ -60,7 +60,7 @@ export async function validation(): Promise<void> {
 
     if (createRelease === 'true') {
       const doc = new Markdown(
-        release.result.records,
+        release,
         map,
         tasks.result.records,
         sfUser,

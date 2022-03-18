@@ -202,20 +202,20 @@ function validation() {
             sfdx_util_1.SfdxUtil.authorice(sfUser, 'server.key', customerId, enviroment);
             const q = new queries_1.Queries();
             const qRelease = q.getRelase(releaseId);
-            const release = sfdx_util_1.SfdxUtil.createFileByQuery(qRelease, `realease${releaseId}`, sfUser);
+            const release = sfdx_util_1.SfdxUtil.createFileByQuery(qRelease, `realease${releaseId}`, sfUser).result.records;
             const qTasks = q.getTasks(taskId, releaseId);
             const tasks = sfdx_util_1.SfdxUtil.createFileByQuery(qTasks, `tasks${releaseId}`, sfUser);
             console.log(tasks);
             const qComponents = q.getComponents(releaseId);
             const components = sfdx_util_1.SfdxUtil.createFileByQuery(qComponents, `components${releaseId}`, sfUser);
             const map = soql_util_1.SoqlUtil.recordToMapGroup('DeployManager__Type__c', components.result.records);
-            const m = new metadata_1.Metadata(release.result.records, map, sfUser, sfUserDeploy);
+            const m = new metadata_1.Metadata(release, map, sfUser, sfUserDeploy);
             const xmlPackage = m.getPackage();
             const sfdxRetrieve = m.getSourceSfdx();
             const sfdxDeploy = m.getSourceSfdx();
             const gitCommand = m.getGit();
             if (createRelease === 'true') {
-                const doc = new markdown_1.Markdown(release.result.records, map, tasks.result.records, sfUser, sfUserDeploy);
+                const doc = new markdown_1.Markdown(release, map, tasks.result.records, sfUser, sfUserDeploy);
                 doc.setCode(xmlPackage, 'xml', 'Package');
                 doc.setCode(sfdxRetrieve, 'shell', 'Retrieve');
                 doc.setCode(sfdxDeploy, 'shell', 'Deploy');
