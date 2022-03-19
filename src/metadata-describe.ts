@@ -1,7 +1,7 @@
+/* eslint-disable @typescript-eslint/no-require-imports */
 //import {SfdxUtil} from './sfdx-util'
 import {TypesFloder} from './interfaces'
 import {pathsSFDX} from './constants'
-// eslint-disable-next-line @typescript-eslint/no-require-imports
 import meta = require('./metadata-data.json')
 
 export class MeatadataDescribe {

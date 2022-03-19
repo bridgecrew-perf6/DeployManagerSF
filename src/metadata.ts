@@ -115,7 +115,7 @@ export class Metadata {
         if (
           patInfo.inFolder === false &&
           patInfo.metaFile === true &&
-          patInfo.suffix !== null
+          !!patInfo.suffix
         ) {
           file = `${patInfo.directoryName}/${member}`
           const ext = patInfo.noExtension === true ? '' : `.${patInfo.suffix}`
@@ -125,7 +125,7 @@ export class Metadata {
         } else if (
           patInfo.inFolder === false &&
           patInfo.metaFile === false &&
-          patInfo.suffix === null
+          !patInfo.suffix
         ) {
           file = `${patInfo.directoryName}/${member}`
           components.add(`${root}${file}`)
@@ -133,7 +133,7 @@ export class Metadata {
         } else if (
           patInfo.inFolder === false &&
           patInfo.metaFile === false &&
-          patInfo.suffix !== null
+          !!patInfo.suffix
         ) {
           file = `${patInfo.directoryName}/${patInfo.xmlName}`
           components.add(`${root}${file}.${patInfo.suffix}-meta.xml`)

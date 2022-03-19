@@ -283,7 +283,6 @@ exports.Markdown = Markdown;
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.MeatadataDescribe = void 0;
 const constants_1 = __nccwpck_require__(5105);
-// eslint-disable-next-line @typescript-eslint/no-require-imports
 const meta = __nccwpck_require__(788);
 class MeatadataDescribe {
     constructor(user) {
@@ -418,7 +417,7 @@ class Metadata {
                 const member = record.DeployManager__FullName__c;
                 if (patInfo.inFolder === false &&
                     patInfo.metaFile === true &&
-                    patInfo.suffix !== null) {
+                    !!patInfo.suffix) {
                     file = `${patInfo.directoryName}/${member}`;
                     const ext = patInfo.noExtension === true ? '' : `.${patInfo.suffix}`;
                     components.add(`${root}${file}${ext}`);
@@ -427,14 +426,14 @@ class Metadata {
                 }
                 else if (patInfo.inFolder === false &&
                     patInfo.metaFile === false &&
-                    patInfo.suffix === null) {
+                    !patInfo.suffix) {
                     file = `${patInfo.directoryName}/${member}`;
                     components.add(`${root}${file}`);
                     (0, core_1.notice)(`${patInfo.xmlName} => 2`);
                 }
                 else if (patInfo.inFolder === false &&
                     patInfo.metaFile === false &&
-                    patInfo.suffix !== null) {
+                    !!patInfo.suffix) {
                     file = `${patInfo.directoryName}/${patInfo.xmlName}`;
                     components.add(`${root}${file}.${patInfo.suffix}-meta.xml`);
                     (0, core_1.notice)(`${patInfo.xmlName} => 3`);
