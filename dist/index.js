@@ -398,12 +398,15 @@ class Metadata {
         return `git ${isDestructive ? 'rm --force' : 'add'} ${this.getGitList()}`;
     }
     getSfdxComponents() {
+        var _a;
         const commands = [];
         for (const type of this._components.keys()) {
+            const patInfo = constants_1.pathsSFDX.get(type);
             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
             // @ts-ignore: Object is possibly 'null'.
             for (const component of this._components.get(type)) {
-                commands.push(`${type}:${component.DeployManager__FullName__c}`);
+                const type2 = ((_a = patInfo === null || patInfo === void 0 ? void 0 : patInfo.childXmlNames) === null || _a === void 0 ? void 0 : _a.length) === 1 ? patInfo.childXmlNames[0] : type;
+                commands.push(`${type2}:${component.DeployManager__FullName__c}`);
             }
         }
         return commands;

@@ -68,10 +68,13 @@ export class Metadata {
     const commands: string[] = []
 
     for (const type of this._components.keys()) {
+      const patInfo: TypesFloder | undefined = pathsSFDX.get(type)
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore: Object is possibly 'null'.
       for (const component of this._components.get(type)) {
-        commands.push(`${type}:${component.DeployManager__FullName__c}`)
+        const type2 =
+          patInfo?.childXmlNames?.length === 1 ? patInfo.childXmlNames[0] : type
+        commands.push(`${type2}:${component.DeployManager__FullName__c}`)
       }
     }
 
