@@ -441,6 +441,12 @@ class Metadata {
                     file = `${patInfo.directoryName}/${member}`;
                     components.add(`${root}${file}`);
                 }
+                else if (patInfo.inFolder === false &&
+                    patInfo.metaFile === false &&
+                    patInfo.suffix !== null) {
+                    file = `${patInfo.directoryName}/${patInfo.xmlName}`;
+                    components.add(`${root}${file}${patInfo.suffix}-meta.xml`);
+                }
                 else {
                     // eslint-disable-next-line no-console
                     console.log(`${patInfo.directoryName}`, member);
