@@ -31,5 +31,23 @@ export const SfdxUtil = {
   ) {
     const command = `sfdx force:auth:jwt:grant --clientid ${customerId} --jwtkeyfile '.sfdx/${keyName}' --username '${user}' -r '${enviroment}'`
     cp.execSync(command)
+  },
+  createFileByCommand(cmd: string, fileName: string, user: string) {
+    const file = `./.sfdx/${fileName}.json`
+    const command = `${cmd} -u ${user} --json > ${file}`
+    cp.execSync(command)
+
+    let data = {}
+
+    if (fs.existsSync(file)) {
+      const dataS: string = fs.readFileSync(file, {
+        encoding: 'utf8',
+        flag: 'r'
+      })
+      data = dataS ? JSON.parse(dataS) : {}
+    } else {
+      setFailed('no file found')
+    }
+    return data
   }
 }

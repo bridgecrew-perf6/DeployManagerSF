@@ -1,14 +1,16 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import * as xml2js from 'xml2js'
 import {TypesFloder, packageXML} from './interfaces'
-import {XMLPCK, pathsSFDX} from './constants'
 import {notice, setFailed} from '@actions/core'
+import {MeatadataDescribe} from './metadata-describe'
+import {XMLPCK} from './constants'
 
 export class Metadata {
   _release: any[]
   _components: Map<string, Set<any>>
   _sfUser: string
   _sfUserDeploy: string
+  _mDesc: MeatadataDescribe
 
   constructor(
     release: any[],
@@ -20,6 +22,7 @@ export class Metadata {
     this._sfUserDeploy = sfUserDeploy
     this._release = release
     this._components = components
+    this._mDesc = new MeatadataDescribe(sfUser)
   }
 
   getPackage(): string {
@@ -29,7 +32,9 @@ export class Metadata {
     const types = []
 
     for (const type of this._components.keys()) {
-      const patInfo: TypesFloder | undefined = pathsSFDX.get(type)
+      const patInfo: TypesFloder | undefined = this._mDesc
+        .getMetadata()
+        .get(type)
       const type2 =
         patInfo?.childXmlNames?.length === 1 ? patInfo.childXmlNames[0] : type
 
@@ -72,7 +77,9 @@ export class Metadata {
     const commands: string[] = []
 
     for (const type of this._components.keys()) {
-      const patInfo: TypesFloder | undefined = pathsSFDX.get(type)
+      const patInfo: TypesFloder | undefined = this._mDesc
+        .getMetadata()
+        .get(type)
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore: Object is possibly 'null'.
       for (const component of this._components.get(type)) {
@@ -90,7 +97,9 @@ export class Metadata {
     const components: Set<string> = new Set()
 
     for (const type of this._components.keys()) {
-      const patInfo: TypesFloder | undefined = pathsSFDX.get(type)
+      const patInfo: TypesFloder | undefined = this._mDesc
+        .getMetadata()
+        .get(type)
       if (patInfo === undefined) {
         setFailed(`There is no metadata definition ${type}`)
         continue
@@ -129,30 +138,6 @@ export class Metadata {
           console.log(`${patInfo.directoryName}`, member)
           notice(patInfo.directoryName)
         }
-
-        /*
-        if (patInfo.directoryNameChild) {
-          file = `${patInfo.directoryName}/${member.replace(
-            '.',
-            `/${patInfo.directoryNameChild}/`
-          )}.${patInfo.suffix}-meta.xml`
-        } else if (!patInfo.suffix) {
-          file = `${patInfo.directoryName}/${member}`
-        } else if (patInfo.suffix && !patInfo.noExtension) {
-          file = `${patInfo.directoryName}/${member}.${patInfo.suffix}`
-        } else if (patInfo.suffix && patInfo.noExtension) {
-          file = `${patInfo.directoryName}/${member}`
-        } else {
-          setFailed(`Invalid type  ${member}`)
-        }*/
-
-        /*
-        if (!patInfo.directoryNameChild && patInfo.suffix) {
-          components.add(
-            `${root}${patInfo.directoryName}/${member}.${patInfo.suffix}-meta.xml`
-          )
-        }
-        */
       }
     }
 

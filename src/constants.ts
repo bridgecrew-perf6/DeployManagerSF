@@ -9,58 +9,6 @@ export const XMLPCK: packageXML = {
 
 export const pathsSFDX = new Map<String, TypesFloder>([
   [
-    'CustomObject',
-    {
-      childXmlNames: [
-        'CustomField',
-        'Index',
-        'BusinessProcess',
-        'RecordType',
-        'CompactLayout',
-        'WebLink',
-        'ValidationRule',
-        'SharingReason',
-        'ListView',
-        'FieldSet'
-      ],
-      directoryName: 'objects',
-      inFolder: false,
-      metaFile: false,
-      suffix: 'object',
-      xmlName: 'CustomObject'
-    }
-  ],
-  [
-    'ApexClass',
-    {
-      directoryName: 'classes',
-      inFolder: false,
-      metaFile: true,
-      suffix: 'cls',
-      xmlName: 'ApexClass'
-    }
-  ],
-  [
-    'Layout',
-    {
-      directoryName: 'layouts',
-      inFolder: false,
-      metaFile: false,
-      suffix: 'layout',
-      xmlName: 'Layout'
-    }
-  ],
-  [
-    'Flow',
-    {
-      directoryName: 'flows',
-      inFolder: false,
-      metaFile: false,
-      suffix: 'flow',
-      xmlName: 'Flow'
-    }
-  ],
-  [
     'CustomField',
     {
       directoryName: 'objects',
@@ -69,16 +17,6 @@ export const pathsSFDX = new Map<String, TypesFloder>([
       metaFile: false,
       suffix: 'field',
       xmlName: 'CustomField'
-    }
-  ],
-  [
-    'LightningComponentBundle',
-    {
-      directoryName: 'lwc',
-      inFolder: false,
-      metaFile: false,
-      suffix: null,
-      xmlName: 'LightningComponentBundle'
     }
   ],
   [

@@ -1,6 +1,14 @@
 require('./sourcemap-register.js');/******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
+/***/ 788:
+/***/ ((module) => {
+
+"use strict";
+module.exports = JSON.parse('{"status":0,"result":{"metadataObjects":[{"directoryName":"installedPackages","inFolder":false,"metaFile":false,"suffix":"installedPackage","xmlName":"InstalledPackage"},{"childXmlNames":["CustomLabel"],"directoryName":"labels","inFolder":false,"metaFile":false,"suffix":"labels","xmlName":"CustomLabels"},{"directoryName":"staticresources","inFolder":false,"metaFile":true,"suffix":"resource","xmlName":"StaticResource"},{"directoryName":"scontrols","inFolder":false,"metaFile":true,"suffix":"scf","xmlName":"Scontrol"},{"directoryName":"certs","inFolder":false,"metaFile":true,"suffix":"crt","xmlName":"Certificate"},{"directoryName":"messageChannels","inFolder":false,"metaFile":false,"suffix":"messageChannel","xmlName":"LightningMessageChannel"},{"directoryName":"lwc","inFolder":false,"metaFile":false,"xmlName":"LightningComponentBundle"},{"directoryName":"aura","inFolder":false,"metaFile":false,"xmlName":"AuraDefinitionBundle"},{"directoryName":"components","inFolder":false,"metaFile":true,"suffix":"component","xmlName":"ApexComponent"},{"directoryName":"pages","inFolder":false,"metaFile":true,"suffix":"page","xmlName":"ApexPage"},{"directoryName":"queues","inFolder":false,"metaFile":false,"suffix":"queue","xmlName":"Queue"},{"directoryName":"inboundNetworkConnections","inFolder":false,"metaFile":false,"suffix":"inboundNetworkConnection","xmlName":"InboundNetworkConnection"},{"directoryName":"outboundNetworkConnections","inFolder":false,"metaFile":false,"suffix":"outboundNetworkConnection","xmlName":"OutboundNetworkConnection"},{"directoryName":"namedCredentials","inFolder":false,"metaFile":false,"suffix":"namedCredential","xmlName":"NamedCredential"},{"directoryName":"dataSources","inFolder":false,"metaFile":false,"suffix":"dataSource","xmlName":"ExternalDataSource"},{"directoryName":"externalServiceRegistrations","inFolder":false,"metaFile":false,"suffix":"externalServiceRegistration","xmlName":"ExternalServiceRegistration"},{"directoryName":"roles","inFolder":false,"metaFile":false,"suffix":"role","xmlName":"Role"},{"directoryName":"groups","inFolder":false,"metaFile":false,"suffix":"group","xmlName":"Group"},{"directoryName":"globalValueSets","inFolder":false,"metaFile":false,"suffix":"globalValueSet","xmlName":"GlobalValueSet"},{"directoryName":"standardValueSets","inFolder":false,"metaFile":false,"suffix":"standardValueSet","xmlName":"StandardValueSet"},{"directoryName":"customPermissions","inFolder":false,"metaFile":false,"suffix":"customPermission","xmlName":"CustomPermission"},{"childXmlNames":["CustomField","Index","BusinessProcess","RecordType","CompactLayout","WebLink","ValidationRule","SharingReason","ListView","FieldSet"],"directoryName":"objects","inFolder":false,"metaFile":false,"suffix":"object","xmlName":"CustomObject"},{"directoryName":"reportTypes","inFolder":false,"metaFile":false,"suffix":"reportType","xmlName":"ReportType"},{"directoryName":"reports","inFolder":true,"metaFile":false,"suffix":"report","xmlName":"Report"},{"directoryName":"dashboards","inFolder":true,"metaFile":false,"suffix":"dashboard","xmlName":"Dashboard"},{"directoryName":"analyticSnapshots","inFolder":false,"metaFile":false,"suffix":"snapshot","xmlName":"AnalyticSnapshot"},{"directoryName":"feedFilters","inFolder":false,"metaFile":false,"suffix":"feedFilter","xmlName":"CustomFeedFilter"},{"directoryName":"layouts","inFolder":false,"metaFile":false,"suffix":"layout","xmlName":"Layout"},{"directoryName":"documents","inFolder":true,"metaFile":true,"xmlName":"Document"},{"directoryName":"weblinks","inFolder":false,"metaFile":false,"suffix":"weblink","xmlName":"CustomPageWebLink"},{"directoryName":"letterhead","inFolder":false,"metaFile":false,"suffix":"letter","xmlName":"Letterhead"},{"directoryName":"email","inFolder":true,"metaFile":true,"suffix":"email","xmlName":"EmailTemplate"},{"directoryName":"quickActions","inFolder":false,"metaFile":false,"suffix":"quickAction","xmlName":"QuickAction"},{"directoryName":"flexipages","inFolder":false,"metaFile":false,"suffix":"flexipage","xmlName":"FlexiPage"},{"directoryName":"tabs","inFolder":false,"metaFile":false,"suffix":"tab","xmlName":"CustomTab"},{"directoryName":"customApplicationComponents","inFolder":false,"metaFile":false,"suffix":"customApplicationComponent","xmlName":"CustomApplicationComponent"},{"directoryName":"applications","inFolder":false,"metaFile":false,"suffix":"app","xmlName":"CustomApplication"},{"directoryName":"customMetadata","inFolder":false,"metaFile":false,"suffix":"md","xmlName":"CustomMetadata"},{"directoryName":"flows","inFolder":false,"metaFile":false,"suffix":"flow","xmlName":"Flow"},{"directoryName":"flowDefinitions","inFolder":false,"metaFile":false,"suffix":"flowDefinition","xmlName":"FlowDefinition"},{"directoryName":"contentassets","inFolder":false,"metaFile":true,"suffix":"asset","xmlName":"ContentAsset"},{"childXmlNames":["WorkflowFieldUpdate","WorkflowKnowledgePublish","WorkflowTask","WorkflowAlert","WorkflowSend","WorkflowOutboundMessage","WorkflowRule"],"directoryName":"workflows","inFolder":false,"metaFile":false,"suffix":"workflow","xmlName":"Workflow"},{"childXmlNames":["AssignmentRule"],"directoryName":"assignmentRules","inFolder":false,"metaFile":false,"suffix":"assignmentRules","xmlName":"AssignmentRules"},{"childXmlNames":["AutoResponseRule"],"directoryName":"autoResponseRules","inFolder":false,"metaFile":false,"suffix":"autoResponseRules","xmlName":"AutoResponseRules"},{"childXmlNames":["EscalationRule"],"directoryName":"escalationRules","inFolder":false,"metaFile":false,"suffix":"escalationRules","xmlName":"EscalationRules"},{"directoryName":"postTemplates","inFolder":false,"metaFile":false,"suffix":"postTemplate","xmlName":"PostTemplate"},{"directoryName":"approvalProcesses","inFolder":false,"metaFile":false,"suffix":"approvalProcess","xmlName":"ApprovalProcess"},{"directoryName":"homePageComponents","inFolder":false,"metaFile":false,"suffix":"homePageComponent","xmlName":"HomePageComponent"},{"directoryName":"homePageLayouts","inFolder":false,"metaFile":false,"suffix":"homePageLayout","xmlName":"HomePageLayout"},{"directoryName":"objectTranslations","inFolder":false,"metaFile":false,"suffix":"objectTranslation","xmlName":"CustomObjectTranslation"},{"directoryName":"globalValueSetTranslations","inFolder":false,"metaFile":false,"suffix":"globalValueSetTranslation","xmlName":"GlobalValueSetTranslation"},{"directoryName":"standardValueSetTranslations","inFolder":false,"metaFile":false,"suffix":"standardValueSetTranslation","xmlName":"StandardValueSetTranslation"},{"directoryName":"classes","inFolder":false,"metaFile":true,"suffix":"cls","xmlName":"ApexClass"},{"directoryName":"triggers","inFolder":false,"metaFile":true,"suffix":"trigger","xmlName":"ApexTrigger"},{"directoryName":"testSuites","inFolder":false,"metaFile":false,"suffix":"testSuite","xmlName":"ApexTestSuite"},{"directoryName":"profiles","inFolder":false,"metaFile":false,"suffix":"profile","xmlName":"Profile"},{"directoryName":"permissionsets","inFolder":false,"metaFile":false,"suffix":"permissionset","xmlName":"PermissionSet"},{"directoryName":"mutingpermissionsets","inFolder":false,"metaFile":false,"suffix":"mutingpermissionset","xmlName":"MutingPermissionSet"},{"directoryName":"permissionsetgroups","inFolder":false,"metaFile":false,"suffix":"permissionsetgroup","xmlName":"PermissionSetGroup"},{"directoryName":"profilePasswordPolicies","inFolder":false,"metaFile":false,"suffix":"profilePasswordPolicy","xmlName":"ProfilePasswordPolicy"},{"directoryName":"profileSessionSettings","inFolder":false,"metaFile":false,"suffix":"profileSessionSetting","xmlName":"ProfileSessionSetting"},{"directoryName":"myDomainDiscoverableLogins","inFolder":false,"metaFile":false,"suffix":"myDomainDiscoverableLogin","xmlName":"MyDomainDiscoverableLogin"},{"directoryName":"blacklistedConsumers","inFolder":false,"metaFile":false,"suffix":"blacklistedConsumer","xmlName":"BlacklistedConsumer"},{"directoryName":"oauthcustomscopes","inFolder":false,"metaFile":false,"suffix":"oauthcustomscope","xmlName":"OauthCustomScope"},{"directoryName":"userProvisioningConfigs","inFolder":false,"metaFile":false,"suffix":"userProvisioningConfig","xmlName":"UserProvisioningConfig"},{"directoryName":"datacategorygroups","inFolder":false,"metaFile":false,"suffix":"datacategorygroup","xmlName":"DataCategoryGroup"},{"directoryName":"remoteSiteSettings","inFolder":false,"metaFile":false,"suffix":"remoteSite","xmlName":"RemoteSiteSetting"},{"directoryName":"cspTrustedSites","inFolder":false,"metaFile":false,"suffix":"cspTrustedSite","xmlName":"CspTrustedSite"},{"directoryName":"redirectWhitelistUrls","inFolder":false,"metaFile":false,"suffix":"redirectWhitelistUrl","xmlName":"RedirectWhitelistUrl"},{"childXmlNames":["MatchingRule"],"directoryName":"matchingRules","inFolder":false,"metaFile":false,"suffix":"matchingRule","xmlName":"MatchingRules"},{"directoryName":"duplicateRules","inFolder":false,"metaFile":false,"suffix":"duplicateRule","xmlName":"DuplicateRule"},{"directoryName":"cleanDataServices","inFolder":false,"metaFile":false,"suffix":"cleanDataService","xmlName":"CleanDataService"},{"directoryName":"customindex","inFolder":false,"metaFile":false,"suffix":"indx","xmlName":"CustomIndex"},{"directoryName":"skills","inFolder":false,"metaFile":false,"suffix":"skill","xmlName":"Skill"},{"directoryName":"authproviders","inFolder":false,"metaFile":false,"suffix":"authprovider","xmlName":"AuthProvider"},{"directoryName":"eclair","inFolder":false,"metaFile":true,"suffix":"geodata","xmlName":"EclairGeoData"},{"directoryName":"IPAddressRanges","inFolder":false,"metaFile":false,"suffix":"IPAddressRange","xmlName":"IPAddressRange"},{"directoryName":"briefcaseDefinitions","inFolder":false,"metaFile":false,"suffix":"briefcaseDefinition","xmlName":"BriefcaseDefinition"},{"directoryName":"channelLayouts","inFolder":false,"metaFile":false,"suffix":"channelLayout","xmlName":"ChannelLayout"},{"directoryName":"sites","inFolder":false,"metaFile":false,"suffix":"site","xmlName":"CustomSite"},{"directoryName":"apexEmailNotifications","inFolder":false,"metaFile":false,"suffix":"notifications","xmlName":"ApexEmailNotifications"},{"childXmlNames":["SharingOwnerRule","SharingCriteriaRule","SharingGuestRule"],"directoryName":"sharingRules","inFolder":false,"metaFile":false,"suffix":"sharingRules","xmlName":"SharingRules"},{"directoryName":"sharingSets","inFolder":false,"metaFile":false,"suffix":"sharingSet","xmlName":"SharingSet"},{"directoryName":"iframeWhiteListUrlSettings","inFolder":false,"metaFile":false,"suffix":"iframeWhiteListUrlSettings","xmlName":"IframeWhiteListUrlSettings"},{"directoryName":"communities","inFolder":false,"metaFile":false,"suffix":"community","xmlName":"Community"},{"directoryName":"ChatterExtensions","inFolder":false,"metaFile":false,"suffix":"ChatterExtension","xmlName":"ChatterExtension"},{"directoryName":"aiApplications","inFolder":false,"metaFile":false,"suffix":"ai","xmlName":"AIApplication"},{"directoryName":"aiApplicationConfigs","inFolder":false,"metaFile":false,"suffix":"aiapplicationconfig","xmlName":"AIApplicationConfig"},{"directoryName":"mlPredictions","inFolder":false,"metaFile":false,"suffix":"mlPrediction","xmlName":"MLPredictionDefinition"},{"directoryName":"mlRecommendations","inFolder":false,"metaFile":false,"suffix":"mlRecommendation","xmlName":"MLRecommendationDefinition"},{"directoryName":"mlDataDefinitions","inFolder":false,"metaFile":false,"suffix":"mlDataDefinition","xmlName":"MLDataDefinition"},{"directoryName":"platformEventChannels","inFolder":false,"metaFile":false,"suffix":"platformEventChannel","xmlName":"PlatformEventChannel"},{"directoryName":"platformEventChannelMembers","inFolder":false,"metaFile":false,"suffix":"platformEventChannelMember","xmlName":"PlatformEventChannelMember"},{"directoryName":"callCenters","inFolder":false,"metaFile":false,"suffix":"callCenter","xmlName":"CallCenter"},{"directoryName":"milestoneTypes","inFolder":false,"metaFile":false,"suffix":"milestoneType","xmlName":"MilestoneType"},{"directoryName":"entitlementProcesses","inFolder":false,"metaFile":false,"suffix":"entitlementProcess","xmlName":"EntitlementProcess"},{"directoryName":"entitlementTemplates","inFolder":false,"metaFile":false,"suffix":"entitlementTemplate","xmlName":"EntitlementTemplate"},{"directoryName":"appointmentAssignmentPolicies","inFolder":false,"metaFile":false,"suffix":"policy","xmlName":"AppointmentAssignmentPolicy"},{"directoryName":"appointmentSchedulingPolicies","inFolder":false,"metaFile":false,"suffix":"policy","xmlName":"AppointmentSchedulingPolicy"},{"directoryName":"Canvases","inFolder":false,"metaFile":false,"suffix":"Canvas","xmlName":"CanvasMetadata"},{"directoryName":"MobileApplicationDetails","inFolder":false,"metaFile":false,"suffix":"MobileApplicationDetail","xmlName":"MobileApplicationDetail"},{"directoryName":"notificationtypes","inFolder":false,"metaFile":false,"suffix":"notiftype","xmlName":"CustomNotificationType"},{"directoryName":"connectedApps","inFolder":false,"metaFile":false,"suffix":"connectedApp","xmlName":"ConnectedApp"},{"directoryName":"appMenus","inFolder":false,"metaFile":false,"suffix":"appMenu","xmlName":"AppMenu"},{"directoryName":"notificationTypeConfig","inFolder":false,"metaFile":false,"suffix":"config","xmlName":"NotificationTypeConfig"},{"directoryName":"delegateGroups","inFolder":false,"metaFile":false,"suffix":"delegateGroup","xmlName":"DelegateGroup"},{"directoryName":"brandingSets","inFolder":false,"metaFile":false,"suffix":"brandingSet","xmlName":"BrandingSet"},{"directoryName":"communityThemeDefinitions","inFolder":false,"metaFile":false,"suffix":"communityThemeDefinition","xmlName":"CommunityThemeDefinition"},{"directoryName":"communityTemplateDefinitions","inFolder":false,"metaFile":false,"suffix":"communityTemplateDefinition","xmlName":"CommunityTemplateDefinition"},{"directoryName":"managedContentTypes","inFolder":false,"metaFile":false,"suffix":"managedContentType","xmlName":"ManagedContentType"},{"directoryName":"siteDotComSites","inFolder":false,"metaFile":true,"suffix":"site","xmlName":"SiteDotCom"},{"directoryName":"experiences","inFolder":false,"metaFile":false,"xmlName":"ExperienceBundle"},{"directoryName":"networks","inFolder":false,"metaFile":false,"suffix":"network","xmlName":"Network"},{"directoryName":"networkBranding","inFolder":false,"metaFile":true,"suffix":"networkBranding","xmlName":"NetworkBranding"},{"directoryName":"navigationMenus","inFolder":false,"metaFile":false,"suffix":"navigationMenu","xmlName":"NavigationMenu"},{"directoryName":"audience","inFolder":false,"metaFile":false,"suffix":"audience","xmlName":"Audience"},{"directoryName":"flowCategories","inFolder":false,"metaFile":false,"suffix":"flowCategory","xmlName":"FlowCategory"},{"directoryName":"lightningBolts","inFolder":false,"metaFile":false,"suffix":"lightningBolt","xmlName":"LightningBolt"},{"directoryName":"lightningExperienceThemes","inFolder":false,"metaFile":false,"suffix":"lightningExperienceTheme","xmlName":"LightningExperienceTheme"},{"directoryName":"lightningOnboardingConfigs","inFolder":false,"metaFile":false,"suffix":"lightningOnboardingConfig","xmlName":"LightningOnboardingConfig"},{"directoryName":"customHelpMenuSections","inFolder":false,"metaFile":false,"suffix":"customHelpMenuSection","xmlName":"CustomHelpMenuSection"},{"directoryName":"prompts","inFolder":false,"metaFile":false,"suffix":"prompt","xmlName":"Prompt"},{"childXmlNames":["ManagedTopic"],"directoryName":"managedTopics","inFolder":false,"metaFile":false,"suffix":"managedTopics","xmlName":"ManagedTopics"},{"directoryName":"moderation","inFolder":false,"metaFile":false,"suffix":"keywords","xmlName":"KeywordList"},{"directoryName":"userCriteria","inFolder":false,"metaFile":false,"suffix":"userCriteria","xmlName":"UserCriteria"},{"directoryName":"moderation","inFolder":false,"metaFile":false,"suffix":"rule","xmlName":"ModerationRule"},{"directoryName":"cmsConnectSource","inFolder":false,"metaFile":false,"suffix":"cmsConnectSource","xmlName":"CMSConnectSource"},{"directoryName":"samlssoconfigs","inFolder":false,"metaFile":false,"suffix":"samlssoconfig","xmlName":"SamlSsoConfig"},{"directoryName":"corsWhitelistOrigins","inFolder":false,"metaFile":false,"suffix":"corsWhitelistOrigin","xmlName":"CorsWhitelistOrigin"},{"directoryName":"actionLinkGroupTemplates","inFolder":false,"metaFile":false,"suffix":"actionLinkGroupTemplate","xmlName":"ActionLinkGroupTemplate"},{"directoryName":"transactionSecurityPolicies","inFolder":false,"metaFile":false,"suffix":"transactionSecurityPolicy","xmlName":"TransactionSecurityPolicy"},{"directoryName":"synonymDictionaries","inFolder":false,"metaFile":false,"suffix":"synonymDictionary","xmlName":"SynonymDictionary"},{"directoryName":"pathAssistants","inFolder":false,"metaFile":false,"suffix":"pathAssistant","xmlName":"PathAssistant"},{"directoryName":"animationRules","inFolder":false,"metaFile":false,"suffix":"animationRule","xmlName":"AnimationRule"},{"directoryName":"LeadConvertSettings","inFolder":false,"metaFile":false,"suffix":"LeadConvertSetting","xmlName":"LeadConvertSettings"},{"directoryName":"liveChatSensitiveDataRule","inFolder":false,"metaFile":false,"suffix":"liveChatSensitiveDataRule","xmlName":"LiveChatSensitiveDataRule"},{"directoryName":"cachePartitions","inFolder":false,"metaFile":false,"suffix":"cachePartition","xmlName":"PlatformCachePartition"},{"directoryName":"topicsForObjects","inFolder":false,"metaFile":false,"suffix":"topicsForObjects","xmlName":"TopicsForObjects"},{"directoryName":"restrictionRules","inFolder":false,"metaFile":false,"suffix":"rule","xmlName":"RestrictionRule"},{"directoryName":"fieldRestrictionRules","inFolder":false,"metaFile":false,"suffix":"rule","xmlName":"FieldRestrictionRule"},{"directoryName":"recommendationStrategies","inFolder":false,"metaFile":false,"suffix":"recommendationStrategy","xmlName":"RecommendationStrategy"},{"directoryName":"entityImplements","inFolder":false,"metaFile":false,"suffix":"entityImplements","xmlName":"EntityImplements"},{"directoryName":"emailservices","inFolder":false,"metaFile":false,"suffix":"xml","xmlName":"EmailServicesFunction"},{"directoryName":"paymentGatewayProviders","inFolder":false,"metaFile":false,"suffix":"paymentGatewayProvider","xmlName":"PaymentGatewayProvider"},{"directoryName":"gatewayProviderPaymentMethodTypes","inFolder":false,"metaFile":false,"suffix":"gatewayProviderPaymentMethodType","xmlName":"GatewayProviderPaymentMethodType"},{"directoryName":"recordActionDeployments","inFolder":false,"metaFile":false,"suffix":"deployment","xmlName":"RecordActionDeployment"},{"directoryName":"EmbeddedServiceConfig","inFolder":false,"metaFile":false,"suffix":"EmbeddedServiceConfig","xmlName":"EmbeddedServiceConfig"},{"directoryName":"EmbeddedServiceBranding","inFolder":false,"metaFile":false,"suffix":"EmbeddedServiceBranding","xmlName":"EmbeddedServiceBranding"},{"directoryName":"EmbeddedServiceFlowConfig","inFolder":false,"metaFile":false,"suffix":"EmbeddedServiceFlowConfig","xmlName":"EmbeddedServiceFlowConfig"},{"directoryName":"EmbeddedServiceMenuSettings","inFolder":false,"metaFile":false,"suffix":"EmbeddedServiceMenuSettings","xmlName":"EmbeddedServiceMenuSettings"},{"directoryName":"callCoachingMediaProviders","inFolder":false,"metaFile":false,"suffix":"callCoachingMediaProvider","xmlName":"CallCoachingMediaProvider"},{"directoryName":"userProfileSearchScopes","inFolder":false,"metaFile":false,"suffix":"userProfileSearchScope","xmlName":"UserProfileSearchScope"},{"directoryName":"PlatformEventSubscriberConfigs","inFolder":false,"metaFile":false,"suffix":"platformEventSubscriberConfig","xmlName":"PlatformEventSubscriberConfig"},{"directoryName":"settings","inFolder":false,"metaFile":false,"suffix":"settings","xmlName":"Settings"}],"organizationNamespace":"DeployManager","partialSaveAllowed":true,"testRequired":false}}');
+
+/***/ }),
+
 /***/ 5105:
 /***/ ((__unused_webpack_module, exports) => {
 
@@ -16,58 +24,6 @@ exports.XMLPCK = {
 };
 exports.pathsSFDX = new Map([
     [
-        'CustomObject',
-        {
-            childXmlNames: [
-                'CustomField',
-                'Index',
-                'BusinessProcess',
-                'RecordType',
-                'CompactLayout',
-                'WebLink',
-                'ValidationRule',
-                'SharingReason',
-                'ListView',
-                'FieldSet'
-            ],
-            directoryName: 'objects',
-            inFolder: false,
-            metaFile: false,
-            suffix: 'object',
-            xmlName: 'CustomObject'
-        }
-    ],
-    [
-        'ApexClass',
-        {
-            directoryName: 'classes',
-            inFolder: false,
-            metaFile: true,
-            suffix: 'cls',
-            xmlName: 'ApexClass'
-        }
-    ],
-    [
-        'Layout',
-        {
-            directoryName: 'layouts',
-            inFolder: false,
-            metaFile: false,
-            suffix: 'layout',
-            xmlName: 'Layout'
-        }
-    ],
-    [
-        'Flow',
-        {
-            directoryName: 'flows',
-            inFolder: false,
-            metaFile: false,
-            suffix: 'flow',
-            xmlName: 'Flow'
-        }
-    ],
-    [
         'CustomField',
         {
             directoryName: 'objects',
@@ -76,16 +32,6 @@ exports.pathsSFDX = new Map([
             metaFile: false,
             suffix: 'field',
             xmlName: 'CustomField'
-        }
-    ],
-    [
-        'LightningComponentBundle',
-        {
-            directoryName: 'lwc',
-            inFolder: false,
-            metaFile: false,
-            suffix: null,
-            xmlName: 'LightningComponentBundle'
         }
     ],
     [
@@ -329,6 +275,45 @@ exports.Markdown = Markdown;
 
 /***/ }),
 
+/***/ 4599:
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.MeatadataDescribe = void 0;
+const constants_1 = __nccwpck_require__(5105);
+// eslint-disable-next-line @typescript-eslint/no-require-imports
+const meta = __nccwpck_require__(788);
+class MeatadataDescribe {
+    constructor(user) {
+        this._user = user;
+    }
+    getMetadata() {
+        if (!MeatadataDescribe._metadata.size) {
+            /*
+            const meta: any = SfdxUtil.createFileByCommand(
+              'sfdx force:mdapi:describemetadata',
+              'describemetadata',
+              this._user
+            )*/
+            const metaOverride = constants_1.pathsSFDX;
+            const newMeta = new Map();
+            for (const describe of meta.result.metadataObjects) {
+                newMeta.set(describe.xmlName, describe);
+            }
+            MeatadataDescribe._metadata = new Map([...newMeta, ...metaOverride]);
+        }
+        return MeatadataDescribe._metadata;
+    }
+}
+exports.MeatadataDescribe = MeatadataDescribe;
+MeatadataDescribe._metadata = new Map();
+//
+
+
+/***/ }),
+
 /***/ 5708:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
@@ -357,14 +342,16 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.Metadata = void 0;
 /* eslint-disable @typescript-eslint/no-explicit-any */
 const xml2js = __importStar(__nccwpck_require__(6189));
-const constants_1 = __nccwpck_require__(5105);
 const core_1 = __nccwpck_require__(2186);
+const metadata_describe_1 = __nccwpck_require__(4599);
+const constants_1 = __nccwpck_require__(5105);
 class Metadata {
     constructor(release, components, sfUser, sfUserDeploy) {
         this._sfUser = sfUser;
         this._sfUserDeploy = sfUserDeploy;
         this._release = release;
         this._components = components;
+        this._mDesc = new metadata_describe_1.MeatadataDescribe(sfUser);
     }
     getPackage() {
         var _a;
@@ -373,7 +360,9 @@ class Metadata {
         const xml = {};
         const types = [];
         for (const type of this._components.keys()) {
-            const patInfo = constants_1.pathsSFDX.get(type);
+            const patInfo = this._mDesc
+                .getMetadata()
+                .get(type);
             const type2 = ((_a = patInfo === null || patInfo === void 0 ? void 0 : patInfo.childXmlNames) === null || _a === void 0 ? void 0 : _a.length) === 1 ? patInfo.childXmlNames[0] : type;
             xml[type] = {
                 members: [],
@@ -404,7 +393,9 @@ class Metadata {
         var _a;
         const commands = [];
         for (const type of this._components.keys()) {
-            const patInfo = constants_1.pathsSFDX.get(type);
+            const patInfo = this._mDesc
+                .getMetadata()
+                .get(type);
             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
             // @ts-ignore: Object is possibly 'null'.
             for (const component of this._components.get(type)) {
@@ -418,7 +409,9 @@ class Metadata {
         const root = 'force-app/main/default/';
         const components = new Set();
         for (const type of this._components.keys()) {
-            const patInfo = constants_1.pathsSFDX.get(type);
+            const patInfo = this._mDesc
+                .getMetadata()
+                .get(type);
             if (patInfo === undefined) {
                 (0, core_1.setFailed)(`There is no metadata definition ${type}`);
                 continue;
@@ -453,28 +446,6 @@ class Metadata {
                     console.log(`${patInfo.directoryName}`, member);
                     (0, core_1.notice)(patInfo.directoryName);
                 }
-                /*
-                if (patInfo.directoryNameChild) {
-                  file = `${patInfo.directoryName}/${member.replace(
-                    '.',
-                    `/${patInfo.directoryNameChild}/`
-                  )}.${patInfo.suffix}-meta.xml`
-                } else if (!patInfo.suffix) {
-                  file = `${patInfo.directoryName}/${member}`
-                } else if (patInfo.suffix && !patInfo.noExtension) {
-                  file = `${patInfo.directoryName}/${member}.${patInfo.suffix}`
-                } else if (patInfo.suffix && patInfo.noExtension) {
-                  file = `${patInfo.directoryName}/${member}`
-                } else {
-                  setFailed(`Invalid type  ${member}`)
-                }*/
-                /*
-                if (!patInfo.directoryNameChild && patInfo.suffix) {
-                  components.add(
-                    `${root}${patInfo.directoryName}/${member}.${patInfo.suffix}-meta.xml`
-                  )
-                }
-                */
             }
         }
         return Array.from(components);
@@ -619,6 +590,23 @@ exports.SfdxUtil = {
     authorice(user, keyName, customerId, enviroment) {
         const command = `sfdx force:auth:jwt:grant --clientid ${customerId} --jwtkeyfile '.sfdx/${keyName}' --username '${user}' -r '${enviroment}'`;
         cp.execSync(command);
+    },
+    createFileByCommand(cmd, fileName, user) {
+        const file = `./.sfdx/${fileName}.json`;
+        const command = `${cmd} -u ${user} --json > ${file}`;
+        cp.execSync(command);
+        let data = {};
+        if (fs.existsSync(file)) {
+            const dataS = fs.readFileSync(file, {
+                encoding: 'utf8',
+                flag: 'r'
+            });
+            data = dataS ? JSON.parse(dataS) : {};
+        }
+        else {
+            (0, core_1.setFailed)('no file found');
+        }
+        return data;
     }
 };
 
