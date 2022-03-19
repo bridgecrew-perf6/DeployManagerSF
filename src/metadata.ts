@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import * as xml2js from 'xml2js'
 import {TypesFloder, packageXML} from './interfaces'
-import {endGroup, notice, setFailed, startGroup} from '@actions/core'
+import {endGroup, setFailed, startGroup, warning} from '@actions/core'
 import {MeatadataDescribe} from './metadata-describe'
 import {XMLPCK} from './constants'
 
@@ -121,7 +121,6 @@ export class Metadata {
           const ext = patInfo.noExtension === true ? '' : `.${patInfo.suffix}`
           components.add(`${root}${file}${ext}`)
           components.add(`${root}${file}.${patInfo.suffix}-meta.xml`)
-          notice(`${patInfo.xmlName} => 1`)
         } else if (
           patInfo.inFolder === false &&
           patInfo.metaFile === false &&
@@ -129,7 +128,6 @@ export class Metadata {
         ) {
           file = `${patInfo.directoryName}/${member}`
           components.add(`${root}${file}`)
-          notice(`${patInfo.xmlName} => 2`)
         } else if (
           patInfo.inFolder === false &&
           patInfo.metaFile === false &&
@@ -138,7 +136,6 @@ export class Metadata {
         ) {
           file = `${patInfo.directoryName}/${patInfo.xmlName}`
           components.add(`${root}${file}.${patInfo.suffix}-meta.xml`)
-          notice(`${patInfo.xmlName} => 3`)
         } else if (
           patInfo.inFolder === false &&
           patInfo.metaFile === false &&
@@ -146,9 +143,10 @@ export class Metadata {
         ) {
           file = `${patInfo.directoryName}/${member}`
           components.add(`${root}${file}.${patInfo.suffix}-meta.xml`)
-          notice(`${patInfo.xmlName} => 4`)
         } else {
-          notice(`${patInfo.xmlName} => 5`)
+          warning(
+            `There is no Metadata/Path definition ${patInfo.xmlName} => ${member}`
+          )
         }
       }
     }

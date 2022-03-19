@@ -423,14 +423,12 @@ class Metadata {
                     const ext = patInfo.noExtension === true ? '' : `.${patInfo.suffix}`;
                     components.add(`${root}${file}${ext}`);
                     components.add(`${root}${file}.${patInfo.suffix}-meta.xml`);
-                    (0, core_1.notice)(`${patInfo.xmlName} => 1`);
                 }
                 else if (patInfo.inFolder === false &&
                     patInfo.metaFile === false &&
                     !patInfo.suffix) {
                     file = `${patInfo.directoryName}/${member}`;
                     components.add(`${root}${file}`);
-                    (0, core_1.notice)(`${patInfo.xmlName} => 2`);
                 }
                 else if (patInfo.inFolder === false &&
                     patInfo.metaFile === false &&
@@ -438,17 +436,15 @@ class Metadata {
                     ((_a = patInfo === null || patInfo === void 0 ? void 0 : patInfo.childXmlNames) === null || _a === void 0 ? void 0 : _a.length) === 1) {
                     file = `${patInfo.directoryName}/${patInfo.xmlName}`;
                     components.add(`${root}${file}.${patInfo.suffix}-meta.xml`);
-                    (0, core_1.notice)(`${patInfo.xmlName} => 3`);
                 }
                 else if (patInfo.inFolder === false &&
                     patInfo.metaFile === false &&
                     !!patInfo.suffix) {
                     file = `${patInfo.directoryName}/${member}`;
                     components.add(`${root}${file}.${patInfo.suffix}-meta.xml`);
-                    (0, core_1.notice)(`${patInfo.xmlName} => 4`);
                 }
                 else {
-                    (0, core_1.notice)(`${patInfo.xmlName} => 5`);
+                    (0, core_1.warning)(`There is no Metadata/Path definition ${patInfo.xmlName} => ${member}`);
                 }
             }
         }
