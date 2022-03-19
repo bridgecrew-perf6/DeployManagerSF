@@ -98,6 +98,17 @@ exports.pathsSFDX = new Map([
             xmlName: 'StaticResource',
             noExtension: true
         }
+    ],
+    [
+        'CustomLabels',
+        {
+            childXmlNames: ['CustomLabel'],
+            directoryName: 'labels',
+            inFolder: false,
+            metaFile: false,
+            suffix: 'labels',
+            xmlName: 'CustomLabels'
+        }
     ]
 ]);
 

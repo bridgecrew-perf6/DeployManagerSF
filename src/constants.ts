@@ -91,5 +91,16 @@ export const pathsSFDX = new Map<String, TypesFloder>([
       xmlName: 'StaticResource',
       noExtension: true
     }
+  ],
+  [
+    'CustomLabels',
+    {
+      childXmlNames: ['CustomLabel'],
+      directoryName: 'labels',
+      inFolder: false,
+      metaFile: false,
+      suffix: 'labels',
+      xmlName: 'CustomLabels'
+    }
   ]
 ])
