@@ -426,27 +426,48 @@ class Metadata {
             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
             // @ts-ignore: Object is possibly 'null'.
             for (const record of this._components.get(type)) {
-                let file = null;
+                let file = '';
                 const member = record.DeployManager__FullName__c;
-                if (patInfo.directoryNameChild) {
-                    file = `${patInfo.directoryName}/${member.replace('.', `/${patInfo.directoryNameChild}/`)}.${patInfo.suffix}-meta.xml`;
-                }
-                else if (!patInfo.suffix) {
+                if (patInfo.inFolder === false &&
+                    patInfo.metaFile === true &&
+                    patInfo.suffix !== null) {
                     file = `${patInfo.directoryName}/${member}`;
+                    components.add(`${root}${file}${patInfo.suffix}`);
+                    components.add(`${root}${file}${patInfo.suffix}-meta.xml`);
                 }
-                else if (patInfo.suffix && !patInfo.noExtension) {
-                    file = `${patInfo.directoryName}/${member}.${patInfo.suffix}`;
-                }
-                else if (patInfo.suffix && patInfo.noExtension) {
+                else if (patInfo.inFolder === false &&
+                    patInfo.metaFile === false &&
+                    patInfo.suffix === null) {
                     file = `${patInfo.directoryName}/${member}`;
+                    components.add(`${root}${file}`);
                 }
                 else {
-                    (0, core_1.setFailed)(`Invalid type  ${member}`);
+                    // eslint-disable-next-line no-console
+                    console.log(`${patInfo.directoryName}`, member);
+                    (0, core_1.notice)(patInfo.directoryName);
                 }
+                /*
+                if (patInfo.directoryNameChild) {
+                  file = `${patInfo.directoryName}/${member.replace(
+                    '.',
+                    `/${patInfo.directoryNameChild}/`
+                  )}.${patInfo.suffix}-meta.xml`
+                } else if (!patInfo.suffix) {
+                  file = `${patInfo.directoryName}/${member}`
+                } else if (patInfo.suffix && !patInfo.noExtension) {
+                  file = `${patInfo.directoryName}/${member}.${patInfo.suffix}`
+                } else if (patInfo.suffix && patInfo.noExtension) {
+                  file = `${patInfo.directoryName}/${member}`
+                } else {
+                  setFailed(`Invalid type  ${member}`)
+                }*/
+                /*
                 if (!patInfo.directoryNameChild && patInfo.suffix) {
-                    components.add(`${root}${patInfo.directoryName}/${member}.${patInfo.suffix}-meta.xml`);
+                  components.add(
+                    `${root}${patInfo.directoryName}/${member}.${patInfo.suffix}-meta.xml`
+                  )
                 }
-                components.add(`${root}${file}`);
+                */
             }
         }
         return Array.from(components);

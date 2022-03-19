@@ -2,7 +2,7 @@
 import * as xml2js from 'xml2js'
 import {TypesFloder, packageXML} from './interfaces'
 import {XMLPCK, pathsSFDX} from './constants'
-import {setFailed} from '@actions/core'
+import {notice, setFailed} from '@actions/core'
 
 export class Metadata {
   _release: any[]
@@ -98,9 +98,31 @@ export class Metadata {
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore: Object is possibly 'null'.
       for (const record of this._components.get(type)) {
-        let file = null
+        let file = ''
         const member = record.DeployManager__FullName__c
 
+        if (
+          patInfo.inFolder === false &&
+          patInfo.metaFile === true &&
+          patInfo.suffix !== null
+        ) {
+          file = `${patInfo.directoryName}/${member}`
+          components.add(`${root}${file}${patInfo.suffix}`)
+          components.add(`${root}${file}${patInfo.suffix}-meta.xml`)
+        } else if (
+          patInfo.inFolder === false &&
+          patInfo.metaFile === false &&
+          patInfo.suffix === null
+        ) {
+          file = `${patInfo.directoryName}/${member}`
+          components.add(`${root}${file}`)
+        } else {
+          // eslint-disable-next-line no-console
+          console.log(`${patInfo.directoryName}`, member)
+          notice(patInfo.directoryName)
+        }
+
+        /*
         if (patInfo.directoryNameChild) {
           file = `${patInfo.directoryName}/${member.replace(
             '.',
@@ -114,14 +136,15 @@ export class Metadata {
           file = `${patInfo.directoryName}/${member}`
         } else {
           setFailed(`Invalid type  ${member}`)
-        }
+        }*/
 
+        /*
         if (!patInfo.directoryNameChild && patInfo.suffix) {
           components.add(
             `${root}${patInfo.directoryName}/${member}.${patInfo.suffix}-meta.xml`
           )
         }
-        components.add(`${root}${file}`)
+        */
       }
     }
 
