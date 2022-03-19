@@ -133,13 +133,22 @@ export class Metadata {
         } else if (
           patInfo.inFolder === false &&
           patInfo.metaFile === false &&
-          !!patInfo.suffix
+          !!patInfo.suffix &&
+          patInfo?.childXmlNames?.length === 1
         ) {
           file = `${patInfo.directoryName}/${patInfo.xmlName}`
           components.add(`${root}${file}.${patInfo.suffix}-meta.xml`)
           notice(`${patInfo.xmlName} => 3`)
-        } else {
+        } else if (
+          patInfo.inFolder === false &&
+          patInfo.metaFile === false &&
+          !!patInfo.suffix
+        ) {
+          file = `${patInfo.directoryName}/${member}`
+          components.add(`${root}${file}.${patInfo.suffix}-meta.xml`)
           notice(`${patInfo.xmlName} => 4`)
+        } else {
+          notice(`${patInfo.xmlName} => 5`)
         }
       }
     }

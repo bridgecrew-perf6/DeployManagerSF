@@ -399,6 +399,7 @@ class Metadata {
         return commands;
     }
     getGitList() {
+        var _a;
         const root = 'force-app/main/default/';
         const components = new Set();
         (0, core_1.startGroup)('Get Git List');
@@ -433,13 +434,21 @@ class Metadata {
                 }
                 else if (patInfo.inFolder === false &&
                     patInfo.metaFile === false &&
-                    !!patInfo.suffix) {
+                    !!patInfo.suffix &&
+                    ((_a = patInfo === null || patInfo === void 0 ? void 0 : patInfo.childXmlNames) === null || _a === void 0 ? void 0 : _a.length) === 1) {
                     file = `${patInfo.directoryName}/${patInfo.xmlName}`;
                     components.add(`${root}${file}.${patInfo.suffix}-meta.xml`);
                     (0, core_1.notice)(`${patInfo.xmlName} => 3`);
                 }
-                else {
+                else if (patInfo.inFolder === false &&
+                    patInfo.metaFile === false &&
+                    !!patInfo.suffix) {
+                    file = `${patInfo.directoryName}/${member}`;
+                    components.add(`${root}${file}.${patInfo.suffix}-meta.xml`);
                     (0, core_1.notice)(`${patInfo.xmlName} => 4`);
+                }
+                else {
+                    (0, core_1.notice)(`${patInfo.xmlName} => 5`);
                 }
             }
         }
