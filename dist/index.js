@@ -432,8 +432,9 @@ class Metadata {
                     patInfo.metaFile === true &&
                     patInfo.suffix !== null) {
                     file = `${patInfo.directoryName}/${member}`;
-                    components.add(`${root}${file}${patInfo.suffix}`);
-                    components.add(`${root}${file}${patInfo.suffix}-meta.xml`);
+                    const ext = patInfo.noExtension === true ? '' : `.${patInfo.suffix}`;
+                    components.add(`${root}${file}${ext}`);
+                    components.add(`${root}${file}.${patInfo.suffix}-meta.xml`);
                 }
                 else if (patInfo.inFolder === false &&
                     patInfo.metaFile === false &&
@@ -445,7 +446,7 @@ class Metadata {
                     patInfo.metaFile === false &&
                     patInfo.suffix !== null) {
                     file = `${patInfo.directoryName}/${patInfo.xmlName}`;
-                    components.add(`${root}${file}${patInfo.suffix}-meta.xml`);
+                    components.add(`${root}${file}.${patInfo.suffix}-meta.xml`);
                 }
                 else {
                     // eslint-disable-next-line no-console
