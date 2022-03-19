@@ -367,14 +367,17 @@ class Metadata {
         this._components = components;
     }
     getPackage() {
+        var _a;
         const builder = new xml2js.Builder();
         const pckXML = constants_1.XMLPCK;
         const xml = {};
         const types = [];
         for (const type of this._components.keys()) {
+            const patInfo = constants_1.pathsSFDX.get(type);
+            const type2 = ((_a = patInfo === null || patInfo === void 0 ? void 0 : patInfo.childXmlNames) === null || _a === void 0 ? void 0 : _a.length) === 1 ? patInfo.childXmlNames[0] : type;
             xml[type] = {
                 members: [],
-                name: type
+                name: type2
             };
             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
             // @ts-ignore: Object is possibly 'null'.

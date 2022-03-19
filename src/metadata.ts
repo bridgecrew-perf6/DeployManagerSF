@@ -29,9 +29,13 @@ export class Metadata {
     const types = []
 
     for (const type of this._components.keys()) {
+      const patInfo: TypesFloder | undefined = pathsSFDX.get(type)
+      const type2 =
+        patInfo?.childXmlNames?.length === 1 ? patInfo.childXmlNames[0] : type
+
       xml[type] = {
         members: [],
-        name: type
+        name: type2
       }
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore: Object is possibly 'null'.
