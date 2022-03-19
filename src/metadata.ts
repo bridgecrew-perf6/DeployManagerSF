@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import * as xml2js from 'xml2js'
 import {TypesFloder, packageXML} from './interfaces'
-import {notice, setFailed} from '@actions/core'
+import {endGroup, notice, setFailed, startGroup} from '@actions/core'
 import {MeatadataDescribe} from './metadata-describe'
 import {XMLPCK} from './constants'
 
@@ -96,6 +96,8 @@ export class Metadata {
     const root = 'force-app/main/default/'
     const components: Set<string> = new Set()
 
+    startGroup('Get Git List')
+
     for (const type of this._components.keys()) {
       const patInfo: TypesFloder | undefined = this._mDesc
         .getMetadata()
@@ -119,6 +121,7 @@ export class Metadata {
           const ext = patInfo.noExtension === true ? '' : `.${patInfo.suffix}`
           components.add(`${root}${file}${ext}`)
           components.add(`${root}${file}.${patInfo.suffix}-meta.xml`)
+          notice(`${patInfo.xmlName} => 1`)
         } else if (
           patInfo.inFolder === false &&
           patInfo.metaFile === false &&
@@ -126,6 +129,7 @@ export class Metadata {
         ) {
           file = `${patInfo.directoryName}/${member}`
           components.add(`${root}${file}`)
+          notice(`${patInfo.xmlName} => 2`)
         } else if (
           patInfo.inFolder === false &&
           patInfo.metaFile === false &&
@@ -133,13 +137,13 @@ export class Metadata {
         ) {
           file = `${patInfo.directoryName}/${patInfo.xmlName}`
           components.add(`${root}${file}.${patInfo.suffix}-meta.xml`)
+          notice(`${patInfo.xmlName} => 3`)
         } else {
-          // eslint-disable-next-line no-console
-          console.log(`${patInfo.directoryName}`, member)
-          notice(patInfo.directoryName)
+          notice(`${patInfo.xmlName} => 4`)
         }
       }
     }
+    endGroup()
 
     return Array.from(components)
   }

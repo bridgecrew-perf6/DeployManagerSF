@@ -13,12 +13,6 @@ export class MeatadataDescribe {
 
   getMetadata(): Map<String, TypesFloder> {
     if (!MeatadataDescribe._metadata.size) {
-      /*
-      const meta: any = SfdxUtil.createFileByCommand(
-        'sfdx force:mdapi:describemetadata',
-        'describemetadata',
-        this._user
-      )*/
       const metaOverride = pathsSFDX
 
       const newMeta: Map<String, TypesFloder> = new Map()

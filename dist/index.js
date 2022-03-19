@@ -291,12 +291,6 @@ class MeatadataDescribe {
     }
     getMetadata() {
         if (!MeatadataDescribe._metadata.size) {
-            /*
-            const meta: any = SfdxUtil.createFileByCommand(
-              'sfdx force:mdapi:describemetadata',
-              'describemetadata',
-              this._user
-            )*/
             const metaOverride = constants_1.pathsSFDX;
             const newMeta = new Map();
             for (const describe of meta.result.metadataObjects) {
@@ -408,6 +402,7 @@ class Metadata {
     getGitList() {
         const root = 'force-app/main/default/';
         const components = new Set();
+        (0, core_1.startGroup)('Get Git List');
         for (const type of this._components.keys()) {
             const patInfo = this._mDesc
                 .getMetadata()
@@ -428,26 +423,28 @@ class Metadata {
                     const ext = patInfo.noExtension === true ? '' : `.${patInfo.suffix}`;
                     components.add(`${root}${file}${ext}`);
                     components.add(`${root}${file}.${patInfo.suffix}-meta.xml`);
+                    (0, core_1.notice)(`${patInfo.xmlName} => 1`);
                 }
                 else if (patInfo.inFolder === false &&
                     patInfo.metaFile === false &&
                     patInfo.suffix === null) {
                     file = `${patInfo.directoryName}/${member}`;
                     components.add(`${root}${file}`);
+                    (0, core_1.notice)(`${patInfo.xmlName} => 2`);
                 }
                 else if (patInfo.inFolder === false &&
                     patInfo.metaFile === false &&
                     patInfo.suffix !== null) {
                     file = `${patInfo.directoryName}/${patInfo.xmlName}`;
                     components.add(`${root}${file}.${patInfo.suffix}-meta.xml`);
+                    (0, core_1.notice)(`${patInfo.xmlName} => 3`);
                 }
                 else {
-                    // eslint-disable-next-line no-console
-                    console.log(`${patInfo.directoryName}`, member);
-                    (0, core_1.notice)(patInfo.directoryName);
+                    (0, core_1.notice)(`${patInfo.xmlName} => 4`);
                 }
             }
         }
+        (0, core_1.endGroup)();
         return Array.from(components);
     }
     getCommandTest() {
