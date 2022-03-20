@@ -416,7 +416,7 @@ class Metadata {
                 let file = '';
                 const member = record.DeployManager__FullName__c;
                 if (patInfo === null || patInfo === void 0 ? void 0 : patInfo.directoryNameChild) {
-                    file = `${patInfo.directoryName}/${member.replace(',')}`;
+                    file = `${patInfo.directoryName}/${member.replace('.', patInfo.directoryNameChild)}`;
                     components.add(`${root}${file}.${patInfo.suffix}-meta.xml`);
                 }
                 else if (patInfo.inFolder === false &&

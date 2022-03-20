@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/no-require-imports */
-//import {SfdxUtil} from './sfdx-util'
 import {TypesFloder} from './interfaces'
 import {pathsSFDX} from './constants'
 import meta = require('./metadata-data.json')
