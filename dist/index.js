@@ -302,7 +302,6 @@ class MeatadataDescribe {
 }
 exports.MeatadataDescribe = MeatadataDescribe;
 MeatadataDescribe._metadata = new Map();
-//
 
 
 /***/ }),
@@ -416,7 +415,11 @@ class Metadata {
             for (const record of this._components.get(type)) {
                 let file = '';
                 const member = record.DeployManager__FullName__c;
-                if (patInfo.inFolder === false &&
+                if (patInfo === null || patInfo === void 0 ? void 0 : patInfo.directoryNameChild) {
+                    file = `${patInfo.directoryName}/${member.replace(',')}`;
+                    components.add(`${root}${file}.${patInfo.suffix}-meta.xml`);
+                }
+                else if (patInfo.inFolder === false &&
                     patInfo.metaFile === true &&
                     !!patInfo.suffix) {
                     file = `${patInfo.directoryName}/${member}`;

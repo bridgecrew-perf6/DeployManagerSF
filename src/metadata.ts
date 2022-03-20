@@ -112,7 +112,10 @@ export class Metadata {
         let file = ''
         const member = record.DeployManager__FullName__c
 
-        if (
+        if (patInfo?.directoryNameChild) {
+          file = `${patInfo.directoryName}/${member.replace(',')}`
+          components.add(`${root}${file}.${patInfo.suffix}-meta.xml`)
+        } else if (
           patInfo.inFolder === false &&
           patInfo.metaFile === true &&
           !!patInfo.suffix

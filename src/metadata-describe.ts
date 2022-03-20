@@ -24,5 +24,3 @@ export class MeatadataDescribe {
     return MeatadataDescribe._metadata
   }
 }
-
-//
