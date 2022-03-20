@@ -119,7 +119,7 @@ export class Metadata {
             '.',
             `/${patInfo.directoryNameChild}/`
           )}`
-          components.add(`${root}${file}.${patInfo.suffix}-meta.xml`)
+          components.add(`"${root}${file}.${patInfo.suffix}-meta.xml"`)
         } else if (
           patInfo.inFolder === false &&
           patInfo.metaFile === true &&
@@ -127,15 +127,15 @@ export class Metadata {
         ) {
           file = `${patInfo.directoryName}/${member}`
           const ext = patInfo.noExtension === true ? '' : `.${patInfo.suffix}`
-          components.add(`${root}${file}${ext}`)
-          components.add(`${root}${file}.${patInfo.suffix}-meta.xml`)
+          components.add(`"${root}${file}${ext}"`)
+          components.add(`"${root}${file}.${patInfo.suffix}-meta.xml"`)
         } else if (
           patInfo.inFolder === false &&
           patInfo.metaFile === false &&
           !patInfo.suffix
         ) {
           file = `${patInfo.directoryName}/${member}`
-          components.add(`${root}${file}`)
+          components.add(`"${root}${file}"`)
         } else if (
           patInfo.inFolder === false &&
           patInfo.metaFile === false &&
@@ -143,14 +143,14 @@ export class Metadata {
           patInfo?.childXmlNames?.length === 1
         ) {
           file = `${patInfo.directoryName}/${patInfo.xmlName}`
-          components.add(`${root}${file}.${patInfo.suffix}-meta.xml`)
+          components.add(`"${root}${file}.${patInfo.suffix}-meta.xml"`)
         } else if (
           patInfo.inFolder === false &&
           patInfo.metaFile === false &&
           !!patInfo.suffix
         ) {
           file = `${patInfo.directoryName}/${member}`
-          components.add(`${root}${file}.${patInfo.suffix}-meta.xml`)
+          components.add(`"${root}${file}.${patInfo.suffix}-meta.xml"`)
         } else {
           warning(
             `There is no Metadata/Path definition ${patInfo.xmlName} => ${member}`
