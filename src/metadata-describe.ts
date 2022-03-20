@@ -1,7 +1,6 @@
-/* eslint-disable @typescript-eslint/no-require-imports */
+import * as meta from './metadata-data.json'
 import {TypesFloder} from './interfaces'
 import {pathsSFDX} from './constants'
-import meta = require('./metadata-data.json')
 
 export class MeatadataDescribe {
   _user

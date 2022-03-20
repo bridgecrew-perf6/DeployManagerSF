@@ -115,7 +115,7 @@ export class Metadata {
         if (patInfo?.directoryNameChild) {
           file = `${patInfo.directoryName}/${member.replace(
             '.',
-            patInfo.directoryNameChild
+            `/${patInfo.directoryNameChild}/`
           )}`
           components.add(`${root}${file}.${patInfo.suffix}-meta.xml`)
         } else if (
