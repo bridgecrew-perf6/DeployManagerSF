@@ -1,4 +1,5 @@
 import * as meta from './metadata-data.json'
+
 import {TypesFloder} from './interfaces'
 import {pathsSFDX} from './constants'
 

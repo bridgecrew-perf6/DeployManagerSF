@@ -70,7 +70,9 @@ export class Metadata {
   getGit(): string {
     const isDestructive = this._release[0].DeployManager__IsDestructive__c
 
-    return `git ${isDestructive ? 'rm --force' : 'add'} ${this.getGitList()}`
+    return `git ${
+      isDestructive ? 'rm --force' : 'add'
+    } ${this.getGitList().join(' ')}`
   }
 
   getSfdxComponents(): string[] {
